@@ -1,0 +1,36 @@
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\appsettings.Development.json
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\appsettings.json
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\ASP.NET Web Api.exe
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\ASP.NET Web Api.deps.json
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\ASP.NET Web Api.runtimeconfig.json
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\ASP.NET Web Api.runtimeconfig.dev.json
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\ASP.NET Web Api.dll
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\ASP.NET Web Api.pdb
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\Microsoft.OpenApi.dll
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.csproj.AssemblyReference.cache
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.GeneratedMSBuildEditorConfig.editorconfig
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.AssemblyInfoInputs.cache
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.AssemblyInfo.cs
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.csproj.CoreCompileInputs.cache
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.MvcApplicationPartsAssemblyInfo.cs
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.MvcApplicationPartsAssemblyInfo.cache
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\obj\Debug\net5.0\scopedcss\bundle\ASP.NET Web Api.styles.css
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\obj\Debug\net5.0\staticwebassets\ASP.NET Web Api.StaticWebAssets.Manifest.cache
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.RazorTargetAssemblyInfo.cache
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.csproj.CopyComplete
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.dll
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\obj\Debug\net5.0\refint\ASP.NET Web Api.dll
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.pdb
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.genruntimeconfig.cache
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\obj\Debug\net5.0\ref\ASP.NET Web Api.dll
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\System.Data.SqlClient.dll
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\Dapper.dll
+D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\Newtonsoft.Json.dll
