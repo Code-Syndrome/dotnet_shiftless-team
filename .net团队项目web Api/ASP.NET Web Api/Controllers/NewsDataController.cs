@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
+using ASP.NET_Web_Api.Controllers.Models;
 using ASP.NET_Web_Api.Data;
 using ASP.NET_Web_Api.Data.Models;
 
@@ -31,10 +32,25 @@ namespace ASP.NET_Web_Api.Controllers
             return newsdatasql.DeleteNews(Newsid);
         }
 
-        [HttpPut("{JsonNews}/{Newsid}")]
-        public int UpdataNews(News news,string NewsId)
+        [HttpPut]
+        public ActionResult<UpdateResultViewModel> 
+            UpdataNews([FromBody]UpdateNewsViewModel updateViewModel)
         {
-            return  newsdatasql.UpdataNews(news,NewsId);
+            if(!ModelState.IsValid) {
+                return new UpdateResultViewModel() {
+                    News = null,
+                    StatusCode = 2,
+                    Message = "model is invalid !"
+                };
+            }
+            else {
+                int update = newsdatasql.UpdataNews(updateViewModel.Target, updateViewModel.NewsId);
+                return new UpdateResultViewModel() {
+                    News = updateViewModel.Target,
+                    StatusCode = 0,
+                    Message = "news update success !"
+                };
+            }            
         }
 
         [HttpGet("{NewsId}")]
