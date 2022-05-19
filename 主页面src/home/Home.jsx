@@ -1,15 +1,24 @@
 import React, { Component } from 'react'
-import { Link, Route, Routes } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import style from './Home.modules.css'
-import Detail from './details/Detail'
-import posts from './details/newsContent'
+import NewsList from './NewsList'
+import newContent from "./details/newsContent"
+/* import Detail from './details/Detail'
 import Technology from './Technology'
 import Game from './Game'
 import Entertainment from './Entertainment'
-import Flash from './Flash'
+import Flash from './Flash' */
 
-//width:'1500px',height:'150px'
+
 export default class Home extends Component {
+  constructor() {
+    super();
+  }
+
+  SearchNews() {
+
+  }
+
   render() {
     return (
 
@@ -45,39 +54,18 @@ export default class Home extends Component {
                 <Link to='./Game'>游戏</Link>
               </li>
             </ul>
-            <Routes>
-              <Route path='./Flash' element={<Flash />} />
-              <Route path='./Entertainment' element={<Entertainment />} />
-              <Route path='./Technology' element={<Technology />} />
-              <Route path='./Game' element={<Game />} />
-            </Routes>
           </div>
           <div>
-            <ul>
-              {
-                posts.map((val, index) => (
-                  <li key={index}>
-                    <Link to={`./details/Detail/${index}`} target='_blank'>{val.title}</Link>
-                  </li>
-                ))
-              }
-            </ul>
-
-            <Routes>
-              <Route path="./Detail/:id" element={<Detail />} />
-            </Routes>
-
+            <NewsList />
           </div>
         </fieldset>
+
         <div style={style.Home} className='Other'>
           <fieldset style={{ height: '500px' }}>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
+            <Link to="./flash">视频1</Link>
           </fieldset>
         </div>
+
       </div>
 
     )
