@@ -5,7 +5,8 @@ using System;
 using System.Data;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using Newtonsoft.Json;
+
+using System.Text.Json;
 
 namespace ASP.NET_Web_Api.Data
 {
@@ -27,7 +28,11 @@ namespace ASP.NET_Web_Api.Data
         }
         public void AddLoginUser(string LoginUserNow)
         {
-            User LoginUser = (User)JsonConvert.DeserializeObject(LoginUserNow);
+
+            //User LoginUser = (User)JsonConvert.DeserializeObject(now);
+
+            User? LoginUser =JsonSerializer.Deserialize<User>(LoginUserNow);
+
             using var connection = new SqlConnection(connectionString_);
             connection.Open();
             string commandText = $"insert  into [LoginUser] (username,password)" +
@@ -38,8 +43,13 @@ namespace ASP.NET_Web_Api.Data
 
         public void UpdataLoginUser(string LoginUserNow)
         {
-            User LoginUser = (User)JsonConvert.DeserializeObject(LoginUserNow);
-            using var connection = new SqlConnection(connectionString_);
+            //User LoginUser = (User)JsonConvert.DeserializeObject(LoginUserNow);
+            User LoginUser=new User();
+            LoginUser.username = "user3";
+            LoginUser.password = "1111";
+            LoginUser.permission = 1;
+            using var connection = new
+                SqlConnection(connectionString_);
             connection.Open();
             string commandText = $"Update [LoginUser] password='{LoginUser.password}'" +
                $"where username='{LoginUser.username}'";
@@ -68,7 +78,7 @@ namespace ASP.NET_Web_Api.Data
                 ReadSingleRow((IDataRecord)reader);
             }
             reader.Close();
-            return JsonConvert.SerializeObject(AllemptyLoginUser);
+            return JsonSerializer.Serialize(AllemptyLoginUser);
         }
     }
 }

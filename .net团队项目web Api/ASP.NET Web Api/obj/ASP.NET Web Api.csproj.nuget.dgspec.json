@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\c#web项目文件\\ASP.NET Web Api\\ASP.NET Web Api\\ASP.NET Web Api.csproj": {}
+    "C:\\Users\\Rem\\Desktop\\团队项目文件夹\\dotnet_shiftless-team\\.net团队项目web Api\\ASP.NET Web Api\\ASP.NET Web Api.csproj": {}
   },
   "projects": {
-    "D:\\c#web项目文件\\ASP.NET Web Api\\ASP.NET Web Api\\ASP.NET Web Api.csproj": {
+    "C:\\Users\\Rem\\Desktop\\团队项目文件夹\\dotnet_shiftless-team\\.net团队项目web Api\\ASP.NET Web Api\\ASP.NET Web Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\c#web项目文件\\ASP.NET Web Api\\ASP.NET Web Api\\ASP.NET Web Api.csproj",
+        "projectUniqueName": "C:\\Users\\Rem\\Desktop\\团队项目文件夹\\dotnet_shiftless-team\\.net团队项目web Api\\ASP.NET Web Api\\ASP.NET Web Api.csproj",
         "projectName": "ASP.NET Web Api",
-        "projectPath": "D:\\c#web项目文件\\ASP.NET Web Api\\ASP.NET Web Api\\ASP.NET Web Api.csproj",
+        "projectPath": "C:\\Users\\Rem\\Desktop\\团队项目文件夹\\dotnet_shiftless-team\\.net团队项目web Api\\ASP.NET Web Api\\ASP.NET Web Api.csproj",
         "packagesPath": "C:\\Users\\Rem\\.nuget\\packages\\",
-        "outputPath": "D:\\c#web项目文件\\ASP.NET Web Api\\ASP.NET Web Api\\obj\\",
+        "outputPath": "C:\\Users\\Rem\\Desktop\\团队项目文件夹\\dotnet_shiftless-team\\.net团队项目web Api\\ASP.NET Web Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

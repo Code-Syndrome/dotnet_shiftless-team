@@ -18,9 +18,9 @@ namespace ASP.NET_Web_Api.Controllers
 
 
         [HttpGet("AddLoginUser/{JsonLoginUser}")]
-        public void AddLoginUser(string LoginUser)
+        public void AddLoginUser(string JsonLoginUser)
         {
-            UserDatasql.AddLoginUser(LoginUser);
+            UserDatasql.AddLoginUser(JsonLoginUser);
         }
 
 
@@ -31,9 +31,9 @@ namespace ASP.NET_Web_Api.Controllers
         }
 
         [HttpPut("UpdataLoginUser/{JsonLoginUser}")]
-        public void UpdataLoginUser(string LoginUser)
+        public void UpdataLoginUser(string JsonLoginUser)
         {
-            UserDatasql.UpdataLoginUser(LoginUser);
+            UserDatasql.UpdataLoginUser(JsonLoginUser);
         }
 
         [HttpGet("SelectLoginUser/{username}")]

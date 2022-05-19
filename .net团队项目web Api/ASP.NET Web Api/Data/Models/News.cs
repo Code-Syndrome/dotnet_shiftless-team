@@ -1,8 +1,10 @@
-﻿namespace ASP.NET_Web_Api.Data.Models
+﻿using Newtonsoft.Json;
+
+namespace ASP.NET_Web_Api.Data.Models
 {
     public class News
     {
-        public int NewsId { get; set; }
+        public string NewsId { get; set; }
         public string NewsTitle { get; set; }
         public string NewsContent { get; set; }
     }

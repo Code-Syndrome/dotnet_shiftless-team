@@ -9,55 +9,61 @@ using Newtonsoft.Json;
 
 namespace ASP.NET_Web_Api.Data
 {
-    public class NewsDataSql:INewsDataSql
+    public class NewsDataSql : INewsDataSql
     {
         private readonly string connectionString_;
-        public static News AllemptyNews;
         public NewsDataSql(IConfiguration configuration)
         {
             connectionString_ = configuration["ConnectionStrings:DefaultConnection"];
         }
-        public void DeleteNews(int Newsid)
+        public int DeleteNews(int Newsid)
         {
             using var connection = new SqlConnection(connectionString_);
             connection.Open();
             string commandText = $"DELETE FROM [News] WHERE [NewsId]='{Newsid}';";
             using SqlCommand command = new SqlCommand(commandText, connection);
-            command.ExecuteNonQuery();
+            return command.ExecuteNonQuery();
         }
-        public void AddNews(string newsNow)
+        public int AddNews(News news)
         {
-            News news = (News)JsonConvert.DeserializeObject(newsNow);
+           // News news = (News)JsonConvert.DeserializeObject(newsNow);
             using var connection = new SqlConnection(connectionString_);
             connection.Open();
             string commandText = $"insert  into [News] (NewsId,NewsTitle,NewsContent)" +
-                $"values('{news.NewsId}','{news.NewsTitle}','{news.NewsContent}')';";
+                $"values('@news_id','@news_title','@news_content')";
+
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@news_id",news.NewsId),
+                new SqlParameter("@news_title",news.NewsTitle),
+                new SqlParameter("@news_content",news.NewsContent)
+            };
             using SqlCommand command = new SqlCommand(commandText, connection);
-            command.ExecuteNonQuery();
+            command.Parameters.AddRange(sqlParameters);
+            return command.ExecuteNonQuery();
         }
 
-        public void UpdataNews(string newsNow)
+        public int UpdataNews(News target, string newsId)
         {
-            News news = (News)JsonConvert.DeserializeObject(newsNow);
             using var connection = new SqlConnection(connectionString_);
             connection.Open();
-            string commandText = $"Update [News] NewsTitle='{news.NewsTitle}',NewsContent='{news.NewsContent}'" +
-               $"where NewsId='{news.NewsId}'";
+            string commandText = $"Update [News] SET NewsTitle='@news_title',NewsContent='@new_content' " +
+               $"where NewsId='@news_id' ";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+         {
+                new SqlParameter("@news_id",newsId),
+                new SqlParameter("@news_title",target.NewsTitle),
+                new SqlParameter("@news_content",target.NewsContent)
+         };
             using SqlCommand command = new SqlCommand(commandText, connection);
-            command.ExecuteNonQuery();
+            command.Parameters.AddRange(sqlParameters);
+            return command.ExecuteNonQuery();
         }
 
-        public void ReadSingleRow(IDataRecord dataRecord)
+   
+        public News GetNewsById(int id)
         {
-            News emptyNews = new News();
-            emptyNews.NewsId = (int)dataRecord[0];
-            emptyNews.NewsTitle = dataRecord[1].ToString();
-            emptyNews.NewsContent = dataRecord[2].ToString();
-            AllemptyNews= emptyNews;
-        }
-
-        public string SelectNews(int id)
-        {
+            News news = null;
             using var connection = new SqlConnection(connectionString_);
             connection.Open();
             string commandText = $"Select NewsId,NewsTitle,NewsContent from [News]" +
@@ -66,10 +72,38 @@ namespace ASP.NET_Web_Api.Data
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                ReadSingleRow((IDataRecord)reader);
+                news = new()
+                {
+                    NewsId = reader.GetString(0),
+                    NewsTitle = reader.GetString(1),
+                    NewsContent = reader.GetString(2)
+                };
             }
-            reader.Close();
-            return JsonConvert.SerializeObject(AllemptyNews);
+
+            return news;
+        }
+
+        public List<News> GetNews()
+        {
+            List<News> newsList = new();
+
+            using var connection = new SqlConnection(connectionString_);
+            connection.Open();
+            string commandText = $"Select NewsId,NewsTitle,NewsContent from [News]";
+            using SqlCommand command = new SqlCommand(commandText, connection);
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                News news = new()
+                {
+                    NewsId = reader.GetString(0),
+                    NewsTitle = reader.GetString(1),
+                    NewsContent = reader.GetString(2)
+                };
+                newsList.Add(news);
+            }
+
+            return newsList;
         }
     }
 }

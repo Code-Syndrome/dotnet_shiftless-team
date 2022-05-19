@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
 using ASP.NET_Web_Api.Data;
+using ASP.NET_Web_Api.Data.Models;
 
 namespace ASP.NET_Web_Api.Controllers
 {
@@ -17,29 +18,35 @@ namespace ASP.NET_Web_Api.Controllers
         }
 
         
-        [HttpGet("AddNews/{JsonNews}")]
-        public void AddNews(string news)
+        [HttpPost("{JsonNews}")]
+        public int AddNews(News news)
         {
-            newsdatasql.AddNews(news);
+            return newsdatasql.AddNews(news);
         }
 
-
-        [HttpDelete("DeleteNews/{Newsid}")]
-        public void DeleteNews(int Newsid)
+        
+        [HttpDelete("{Newsid}")]
+        public ActionResult<int> DeleteNews(int Newsid)
         {
-            newsdatasql.DeleteNews(Newsid);
+            return newsdatasql.DeleteNews(Newsid);
         }
 
-        [HttpPut("UpdataNews/{JsonNews}")]
-        public void UpdataNews(string news)
+        [HttpPut("{JsonNews}/{Newsid}")]
+        public int UpdataNews(News news,string NewsId)
         {
-            newsdatasql.UpdataNews(news);
+            return  newsdatasql.UpdataNews(news,NewsId);
         }
 
-        [HttpGet("SelectNews/{NewsId}")]
-        public string SelectNews(int Newsid)
+        [HttpGet("{NewsId}")]
+        public News GetNewsById(int Newsid)
         {
-            return newsdatasql.SelectNews(Newsid);
+            return newsdatasql.GetNewsById(Newsid);
+        }
+
+        [HttpGet("{NewsId}")]
+        public News GetNewsById(int Newsid)
+        {
+            return newsdatasql.GetNewsById(Newsid);
         }
     }
 }

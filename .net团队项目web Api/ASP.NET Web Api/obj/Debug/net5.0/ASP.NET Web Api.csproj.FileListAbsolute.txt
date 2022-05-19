@@ -34,3 +34,39 @@ D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\runtimes\u
 D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\Dapper.dll
 D:\c#web项目文件\ASP.NET Web Api\ASP.NET Web Api\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\bin\Debug\net5.0\appsettings.json
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\bin\Debug\net5.0\ASP.NET Web Api.exe
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\bin\Debug\net5.0\ASP.NET Web Api.deps.json
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\bin\Debug\net5.0\ASP.NET Web Api.runtimeconfig.json
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\bin\Debug\net5.0\ASP.NET Web Api.runtimeconfig.dev.json
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\bin\Debug\net5.0\ASP.NET Web Api.dll
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\bin\Debug\net5.0\ASP.NET Web Api.pdb
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\bin\Debug\net5.0\Dapper.dll
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\bin\Debug\net5.0\System.Data.SqlClient.dll
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.csproj.AssemblyReference.cache
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.AssemblyInfoInputs.cache
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.AssemblyInfo.cs
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.csproj.CoreCompileInputs.cache
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\obj\Debug\net5.0\scopedcss\bundle\ASP.NET Web Api.styles.css
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\obj\Debug\net5.0\staticwebassets\ASP.NET Web Api.StaticWebAssets.Manifest.cache
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.RazorTargetAssemblyInfo.cache
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.csproj.CopyComplete
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.dll
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\obj\Debug\net5.0\refint\ASP.NET Web Api.dll
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.pdb
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\obj\Debug\net5.0\ASP.NET Web Api.genruntimeconfig.cache
+C:\Users\Rem\Desktop\团队项目文件夹\dotnet_shiftless-team\.net团队项目web Api\ASP.NET Web Api\obj\Debug\net5.0\ref\ASP.NET Web Api.dll
