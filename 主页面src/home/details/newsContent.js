@@ -1,14 +1,18 @@
 const posts=[
     {
-        'title':'XXXXXX',
+        'title':'XX',
         'content':'XXXXXXX',
     },
     {
-        'title':'XXXXXX',
+        'title':'XXX',
         'content':'XXXXXXX',
     },
     {
-        'title':'XXXXXX',
+        'title':'XXXX',
+        'content':'XXXXXXX',
+    },
+    {
+        'title':'XXXXX',
         'content':'XXXXXXX',
     },
     {
