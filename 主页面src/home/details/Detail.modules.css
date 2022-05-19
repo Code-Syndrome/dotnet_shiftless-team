@@ -1,0 +1,30 @@
+div.detail{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(233, 235, 238);
+}
+
+.nav li{
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+div.other{
+    position: absolute;
+  top: 110px;
+  right: 0;
+  width: 500px;
+  height: 120px;
+}
