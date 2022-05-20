@@ -11,7 +11,7 @@ export default class NewsList extends Component {
                     {
                         posts.map((val, index) => (
                             <li key={index}>
-                                <Link to={`./Detail/${index}`}>{val.title}</Link>
+                                <Link to={`/detail/${index}`}>{val.title}</Link>
                             </li>
                         ))
                     }

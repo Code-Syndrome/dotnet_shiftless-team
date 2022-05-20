@@ -2,18 +2,9 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import style from './Home.modules.css'
 import NewsList from './NewsList'
-import newContent from "./details/newsContent"
-/* import Detail from './details/Detail'
-import Technology from './Technology'
-import Game from './Game'
-import Entertainment from './Entertainment'
-import Flash from './Flash' */
 
 
 export default class Home extends Component {
-  constructor() {
-    super();
-  }
 
   SearchNews() {
 
@@ -28,41 +19,37 @@ export default class Home extends Component {
           <h3>讯飞头条</h3>
           <input type='text' id='usename' style={{ width: '200px', height: '20px' }}></input>
           <button htmlfor='username' style={{ width: '50px', height: '25px' }}>搜索</button>
-          <a><Link to='/login'>登录</Link></a>
+          <Link to='/login'>登录</Link>
         </fieldset>
 
         <fieldset style={style.Home} className='ListPage'>
           <div style={style.Home} className='Nav'>
             <ul>
               <li>
-                <Link to='./home'>首页</Link>
+                <Link to='/flash'>热点</Link>
               </li>
 
               <li>
-                <Link to='./Flash'>热点</Link>
+                <Link to='/entertainment'>娱乐</Link>
               </li>
 
               <li>
-                <Link to='./Entertainment'>娱乐</Link>
+                <Link to='/technology'>科技</Link>
               </li>
 
               <li>
-                <Link to='./Technology'>科技</Link>
-              </li>
-
-              <li>
-                <Link to='./Game'>游戏</Link>
+                <Link to='/game'>游戏</Link>
               </li>
             </ul>
           </div>
           <div>
-            <NewsList />
+            <NewsList/>
           </div>
         </fieldset>
 
         <div style={style.Home} className='Other'>
           <fieldset style={{ height: '500px' }}>
-            <Link to="./flash">视频1</Link>
+            <Link to="/flash">视频1</Link>
           </fieldset>
         </div>
 

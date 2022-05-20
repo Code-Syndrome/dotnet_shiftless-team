@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import NewsList from './NewsList'
 
 export default class Flash extends Component {
   render() {
@@ -7,18 +7,7 @@ export default class Flash extends Component {
       <div>
         <fieldset><h2 style={{textAlign:"center"}}>热点</h2></fieldset>
         <fieldset>
-          <ul>
-            <li>震惊XXXXX
-            </li>
-          </ul>
-          <ul>
-            <li>震惊XXXXX
-            </li>
-          </ul>
-          <ul>
-            <li>震惊XXXXX
-            </li>
-          </ul>
+          <NewsList/>
         </fieldset>
        <a href = "http://localhost:3000">BACK</a>
       </div>

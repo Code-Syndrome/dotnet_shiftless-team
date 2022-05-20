@@ -1,7 +1,7 @@
-const posts=[
+const news=[
     {
-        'title':'XX',
-        'content':'XXXXXXX',
+        'title':'以报效国家、服务人民为自觉追求',
+        'content':'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
     },
     {
         'title':'XXX',
@@ -20,4 +20,4 @@ const posts=[
         'content':'XXXXXXX',
     },
 ]
-export default posts;
+export default news;
