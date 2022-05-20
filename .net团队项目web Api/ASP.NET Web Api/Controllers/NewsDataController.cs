@@ -3,11 +3,13 @@ using Microsoft.AspNetCore.Cors;
 using ASP.NET_Web_Api.Controllers.Models;
 using ASP.NET_Web_Api.Data;
 using ASP.NET_Web_Api.Data.Models;
+using System.Collections.Generic;
 
 namespace ASP.NET_Web_Api.Controllers
 {
     [EnableCors("MyAllowSpecificOrigins")]
     [ApiController]
+    [Route("[controller]")]
     public class NewsDataController : ControllerBase
     {
         private INewsDataSql newsdatasql { get; set; }
@@ -19,8 +21,8 @@ namespace ASP.NET_Web_Api.Controllers
         }
 
         
-        [HttpPost("{JsonNews}")]
-        public int AddNews(News news)
+        [HttpPost]
+        public int AddNews([FromBody]News news)
         {
             return newsdatasql.AddNews(news);
         }
@@ -53,16 +55,16 @@ namespace ASP.NET_Web_Api.Controllers
             }            
         }
 
-        [HttpGet("{NewsId}")]
+        [HttpGet("{Newsid}")]
         public News GetNewsById(int Newsid)
         {
             return newsdatasql.GetNewsById(Newsid);
         }
 
-        [HttpGet("{NewsId}")]
-        public News GetNewsById(int Newsid)
+        [HttpGet]
+        public List<News> GetNews()
         {
-            return newsdatasql.GetNewsById(Newsid);
+            return newsdatasql.GetNews();
         }
     }
 }

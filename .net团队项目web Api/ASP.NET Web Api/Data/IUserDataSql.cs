@@ -1,11 +1,15 @@
-﻿namespace ASP.NET_Web_Api.Data
+﻿using ASP.NET_Web_Api.Data.Models;
+using System.Collections.Generic;
+
+namespace ASP.NET_Web_Api.Data
 {
     public interface IUserDataSql
     {
-        public string SelectLoginUser(string usrname);
-        public void UpdataLoginUser(string LoginUserNow);
-        public void AddLoginUser(string LoginUserNow);
-        public void DeleteLoginUser(string username);
+        public int DeleteUserByUsername(string username);
+        public int AddUser(User user);
+        public int UpdataUser(User user, string username);
+        public User GetUserByUsername(string username);
+        public List<User> GetUser();
 
     }
 }

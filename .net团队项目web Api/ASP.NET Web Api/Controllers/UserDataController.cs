@@ -1,11 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
 using ASP.NET_Web_Api.Data;
+using ASP.NET_Web_Api.Data.Models;
+using System.Collections.Generic;
+using ASP.NET_Web_Api.Controllers.Models;
 
 namespace ASP.NET_Web_Api.Controllers
 {
     [EnableCors("MyAllowSpecificOrigins")]
     [ApiController]
+    [Route("[controller]")]
     public class UserDataController : ControllerBase
     {
         private IUserDataSql UserDatasql { get; set; }
@@ -17,29 +21,54 @@ namespace ASP.NET_Web_Api.Controllers
         }
 
 
-        [HttpGet("AddLoginUser/{JsonLoginUser}")]
-        public void AddLoginUser(string JsonLoginUser)
+        [HttpPost]
+        public int AddUser([FromBody] User User)
         {
-            UserDatasql.AddLoginUser(JsonLoginUser);
+            return UserDatasql.AddUser(User);
         }
 
 
-        [HttpDelete("DeleteLoginUser/{username}")]
-        public void DeleteLoginUser(string username)
+        [HttpDelete("{username}")]
+        public ActionResult<int> DeleteUserByUsername(string username)
         {
-            UserDatasql.DeleteLoginUser(username);
+            return UserDatasql.DeleteUserByUsername(username);
         }
 
-        [HttpPut("UpdataLoginUser/{JsonLoginUser}")]
-        public void UpdataLoginUser(string JsonLoginUser)
+        [HttpPut]
+        public ActionResult<UpdateResultUserViewModel>
+            UpdataUser([FromBody] UpdateUserViewModel updateViewModel)
         {
-            UserDatasql.UpdataLoginUser(JsonLoginUser);
+            if (!ModelState.IsValid)
+            {
+                return new UpdateResultUserViewModel()
+                {
+                    user = null,
+                    StatusCode = 2,
+                    Message = "model is invalid !"
+                };
+            }
+            else
+            {
+                int update = UserDatasql.UpdataUser(updateViewModel.Target, updateViewModel.Username);
+                return new UpdateResultUserViewModel()
+                {
+                    user = updateViewModel.Target,
+                    StatusCode = 0,
+                    Message = "User update success !"
+                };
+            }
         }
 
-        [HttpGet("SelectLoginUser/{username}")]
-        public string SelectLoginUser(string username)
+        [HttpGet("{username}")]
+        public User GetUserByUsername(string username)
         {
-            return UserDatasql.SelectLoginUser(username);
+            return UserDatasql.GetUserByUsername(username);
+        }
+
+        [HttpGet]
+        public List<User> GetUser()
+        {
+            return UserDatasql.GetUser();
         }
     }
 }

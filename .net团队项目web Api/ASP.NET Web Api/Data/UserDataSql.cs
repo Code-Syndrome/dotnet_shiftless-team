@@ -10,7 +10,7 @@ using System.Text.Json;
 
 namespace ASP.NET_Web_Api.Data
 {
-    public class UserDataSql:IUserDataSql
+    public class UserDataSql : IUserDataSql
     {
         private readonly string connectionString_;
         public static User AllemptyLoginUser;
@@ -18,67 +18,79 @@ namespace ASP.NET_Web_Api.Data
         {
             connectionString_ = configuration["ConnectionStrings:DefaultConnection"];
         }
-        public void DeleteLoginUser(string username)
+
+        public int DeleteUserByUsername(string username)
         {
             using var connection = new SqlConnection(connectionString_);
             connection.Open();
             string commandText = $"DELETE FROM [LoginUser] WHERE [username]='{username}';";
             using SqlCommand command = new SqlCommand(commandText, connection);
-            command.ExecuteNonQuery();
-        }
-        public void AddLoginUser(string LoginUserNow)
-        {
-
-            //User LoginUser = (User)JsonConvert.DeserializeObject(now);
-
-            User? LoginUser =JsonSerializer.Deserialize<User>(LoginUserNow);
-
-            using var connection = new SqlConnection(connectionString_);
-            connection.Open();
-            string commandText = $"insert  into [LoginUser] (username,password)" +
-                $"values('{LoginUser.username}','{LoginUser.password}';";
-            using SqlCommand command = new SqlCommand(commandText, connection);
-            command.ExecuteNonQuery();
+            return command.ExecuteNonQuery();
         }
 
-        public void UpdataLoginUser(string LoginUserNow)
-        {
-            //User LoginUser = (User)JsonConvert.DeserializeObject(LoginUserNow);
-            User LoginUser=new User();
-            LoginUser.username = "user3";
-            LoginUser.password = "1111";
-            LoginUser.permission = 1;
-            using var connection = new
-                SqlConnection(connectionString_);
-            connection.Open();
-            string commandText = $"Update [LoginUser] password='{LoginUser.password}'" +
-               $"where username='{LoginUser.username}'";
-            using SqlCommand command = new SqlCommand(commandText, connection);
-            command.ExecuteNonQuery();
-        }
-
-        private void ReadSingleRow(IDataRecord dataRecord)
-        {
-            User emptyLoginUser = new User();
-            emptyLoginUser.username = dataRecord[0].ToString();
-            emptyLoginUser.password = dataRecord[1].ToString();
-            AllemptyLoginUser = emptyLoginUser;
-        }
-
-        public string SelectLoginUser(string usrname)
+        public int AddUser(User user)
         {
             using var connection = new SqlConnection(connectionString_);
             connection.Open();
-            string commandText = $"Select username,password from [LoginUser]" +
-               $"where username='{usrname}'";
+            string commandText = $"insert  into [LoginUser] (username,password,permission)" +
+                $"values('{user.username}','{user.password}','{user.permission}')";
+            using SqlCommand command = new SqlCommand(commandText, connection);
+            return command.ExecuteNonQuery();
+        }
+
+        public int UpdataUser(User user, string username)
+        {
+            using var connection = new SqlConnection(connectionString_);
+            connection.Open();
+            string commandText = $"Update [LoginUser] SET password='{user.password}',permission='{user.permission}' " +
+               $"where username='{username}' ";
+            using SqlCommand command = new SqlCommand(commandText, connection);
+            return command.ExecuteNonQuery();
+        }
+
+        public User GetUserByUsername(string username)
+        {
+            User user = null;
+            using var connection = new SqlConnection(connectionString_);
+            connection.Open();
+            string commandText = $"Select username,password,permission from [LoginUser]" +
+               $"where username='{username}'";
             using SqlCommand command = new SqlCommand(commandText, connection);
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                ReadSingleRow((IDataRecord)reader);
+                user = new()
+                {
+                    username = reader.GetString(0),
+                    password = reader.GetString(1),
+                    permission = int.Parse(reader.GetString(2))
+                };
             }
-            reader.Close();
-            return JsonSerializer.Serialize(AllemptyLoginUser);
+            Console.WriteLine(JsonSerializer.Serialize(user));
+            return user;
+        }
+
+
+        public List<User> GetUser()
+        {
+            List<User> userList = new();
+
+            using var connection = new SqlConnection(connectionString_);
+            connection.Open();
+            string commandText = $"Select username,password,permission from [LoginUser]";
+            using SqlCommand command = new SqlCommand(commandText, connection);
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                User user = new()
+                {
+                    username = reader.GetString(0),
+                    password = reader.GetString(1),
+                    permission = int.Parse(reader.GetString(2))
+                };
+                userList.Add(user);
+            }
+            return userList;
         }
     }
 }

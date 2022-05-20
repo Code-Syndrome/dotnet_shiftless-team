@@ -26,41 +26,26 @@ namespace ASP.NET_Web_Api.Data
         }
         public int AddNews(News news)
         {
-           // News news = (News)JsonConvert.DeserializeObject(newsNow);
+            // News news = (News)JsonConvert.DeserializeObject(newsNow);
             using var connection = new SqlConnection(connectionString_);
             connection.Open();
             string commandText = $"insert  into [News] (NewsId,NewsTitle,NewsContent)" +
-                $"values('@news_id','@news_title','@news_content')";
-
-            SqlParameter[] sqlParameters = new SqlParameter[]
-            {
-                new SqlParameter("@news_id",news.NewsId),
-                new SqlParameter("@news_title",news.NewsTitle),
-                new SqlParameter("@news_content",news.NewsContent)
-            };
+                $"values('{news.NewsId}','{news.NewsTitle}','{news.NewsContent}')";
             using SqlCommand command = new SqlCommand(commandText, connection);
-            command.Parameters.AddRange(sqlParameters);
             return command.ExecuteNonQuery();
         }
 
-        public int UpdataNews(News target, string newsId)
+        public int UpdataNews(News news, string newsId)
         {
             using var connection = new SqlConnection(connectionString_);
             connection.Open();
-            string commandText = $"Update [News] SET NewsTitle='@news_title',NewsContent='@new_content' " +
-               $"where NewsId='@news_id' ";
-            SqlParameter[] sqlParameters = new SqlParameter[]
-         {
-                new SqlParameter("@news_id",newsId),
-                new SqlParameter("@news_title",target.NewsTitle),
-                new SqlParameter("@news_content",target.NewsContent)
-         };
+            string commandText = $"Update [News] SET NewsTitle='{news.NewsTitle}',NewsContent='{news.NewsContent}' " +
+               $"where NewsId='{newsId}' ";
             using SqlCommand command = new SqlCommand(commandText, connection);
-            command.Parameters.AddRange(sqlParameters);
             return command.ExecuteNonQuery();
         }
 
-   
+
         public News GetNewsById(int id)
         {
             News news = null;
