@@ -1,10 +1,10 @@
-div.detail{
+div.detail {
     position: relative;
     height: 100%;
     width: 100%;
 }
 
-.nav ul{
+.nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -12,7 +12,7 @@ div.detail{
     background-color: rgb(233, 235, 238);
 }
 
-.nav li{
+.nav li {
     float: left;
     display: block;
     color: white;
@@ -21,10 +21,17 @@ div.detail{
     text-decoration: none;
 }
 
-div.other{
+fieldset.detail {
+    position: relative;
+    margin: 1px;
+    height: 800px;
+    width: 990px;
+}
+
+div.other fieldset {
     position: absolute;
-  top: 110px;
-  right: 0;
-  width: 500px;
-  height: 120px;
+    top: 100px;
+    right: 0;
+    width: 460px;
+    height: 500px;
 }

@@ -1,20 +1,34 @@
-import { useParams } from 'react'
-import posts from './newsContent'
+import { useParams, Link } from 'react-router-dom'
+import news from './newsContent'
 import React from 'react'
 import Commentlist from './Commentlist';
 import Postcomment from './Postcomment';
 import style from './Detail.modules.css'
 
 export default function Detail() {
+
   const { id } = useParams();
-  const post = posts[id];
+  const post = news[id];
+
   return (
     <div style={style.Detail} className='detail'>
       <fieldset style={style.Detail} className='nav'>
         <ul>
-          <li>导航</li>
-          <li>娱乐</li>
-          <li>游戏</li>
+          <li>
+            <Link to='/flash'>热点</Link>
+          </li>
+
+          <li>
+            <Link to='/entertainment'>娱乐</Link>
+          </li>
+
+          <li>
+            <Link to='/technology'>科技</Link>
+          </li>
+
+          <li>
+            <Link to='/game'>游戏</Link>
+          </li>
         </ul>
       </fieldset>
       <fieldset style={style.Detail} className='detail'>
@@ -33,9 +47,12 @@ export default function Detail() {
           <Commentlist />  {/*评论列表*/}
         </div>
       </fieldset>
-
-      <div style={style.Detail} className='other'>其他</div>
-
+      <a href = "http://localhost:3000">BACK</a>
+      <div style={style.Detail} className='other'>
+        <fieldset>
+          <Link to="/flash">热点</Link>
+        </fieldset>
+      </div>
     </div>
   )
 }
