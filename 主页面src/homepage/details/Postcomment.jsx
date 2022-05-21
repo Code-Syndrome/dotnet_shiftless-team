@@ -7,7 +7,7 @@ export default class Postcomment extends Component {
     this.state = {
       CommentContent: "",
     };
-    console.log(props);
+
     this.AddCommentContent = this.AddCommentContent.bind(this);
     this.SendContent = this.SendContent.bind(this);
   }
@@ -18,7 +18,7 @@ export default class Postcomment extends Component {
   }
 
   AddComment = (comment) => {
-    if (this.props.data.length <= 5) {
+    if (this.props.data.length <= 100) {
       this.props.data.push(comment);
       for (let i = 0; i < this.props.data.length; i++) {
         this.props.data[i].id = i;
@@ -44,10 +44,12 @@ export default class Postcomment extends Component {
   render() {
     return (
       <div>
-        <textarea type='text' className='comment'
-          onChange={this.AddCommentContent}
-          value={this.state.CommentContent}>
-        </textarea>
+        
+          <textarea type='text' className='comment'
+            onChange={this.AddCommentContent}
+            value={this.state.CommentContent}>
+          </textarea>
+        
         <button value='Submit' onClick={this.SendContent}>评论</button>
       </div>
     )
