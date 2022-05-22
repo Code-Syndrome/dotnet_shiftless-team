@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "t+g3X4+6sGj5oE7mwicpwRy2Ldr/vXEfT9O01MuNaOSxKFE7P96SuBONGmbOf1t/41jP4/VIepyNq9IJo3yrOg==",
+  "dgSpecHash": "l5DVN8OWIo/RqO6HAtcbIcKv6aWhPXbnlPcJY+euDdS61VqJjm0NH5nRfOs++uo7Iotu1rvyTruxrJ/7JUpNBQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Rem\\Desktop\\.net团队项目web Api\\ASP.NET Web Api\\ASP.NET Web Api.csproj",
+  "projectFilePath": "C:\\Users\\Rem\\Desktop\\团队项目文件夹\\dotnet_shiftless-team\\.net团队项目web Api\\ASP.NET Web Api\\ASP.NET Web Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Rem\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\Rem\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",
