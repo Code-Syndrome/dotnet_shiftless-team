@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import NewsList from './NewsList'
 
 export default class Game extends Component {
   render() {
@@ -6,20 +7,9 @@ export default class Game extends Component {
       <div>
         <fieldset><h2 style={{textAlign:"center"}}>游戏</h2></fieldset>
         <fieldset>
-          <ul>
-            <li>genshin
-            </li>
-          </ul>
-          <ul>
-            <li>genshin
-            </li>
-          </ul>
-          <ul>
-            <li>genshin
-            </li>
-          </ul>
+          <NewsList data={4}/>
         </fieldset>
-        <a href = "http://localhost:3000">BACK</a>
+        <a href = "http://localhost:3000"><button>返回首页</button></a>
       </div>
     )
   }

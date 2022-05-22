@@ -18,53 +18,58 @@ div.home {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: rgb(233, 235, 238);
+  background-color: rgb(252, 89, 8);
+}
+
+li.login {
+  float: right;
+}
+
+li.register {
+  float: right;
 }
 
 fieldset.Head {
+  position: static;
   width: '1500px';
-  height: '150px';
-
+  height: '1000px';
 }
 
 .Head h3 {
+  margin-top: 0;
   text-align: center;
   position: relative;
 }
 
 .Head input {
   position: absolute;
-  top: center;
+  margin-top: -12px;
   right: 650px;
   width: 200px;
-  height: 100px;
+  height: 12px;
 }
 
 .Head button {
   position: absolute;
-  top: center;
-  right: 600px;
-  width: 200px;
-  height: 100px;
+  margin-top: -12px;
+  right: 650px;
+  width: 50px;
+  height: 20px;
 }
 
-.Head a {
-
-  left: 0px;
-  top: 0px;
-}
 
 fieldset.ListPage {
   position: relative;
+  padding: 2px;
   margin: 1px;
-  height: 5000px;
-  width: 990px;
+  height: 1000px;
+  width: 100%;
 }
 
-div.Other {
+/* div.Other {
   position: absolute;
   top: 110px;
   right: 0;
   width: 500px;
   height: 120px;
-}
+} */

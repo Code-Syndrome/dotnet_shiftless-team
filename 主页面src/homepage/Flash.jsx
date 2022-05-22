@@ -7,9 +7,9 @@ export default class Flash extends Component {
       <div>
         <fieldset><h2 style={{textAlign:"center"}}>热点</h2></fieldset>
         <fieldset>
-          <NewsList/>
+          <NewsList data={1}/>
         </fieldset>
-       <a href = "http://localhost:3000">BACK</a>
+       <a href = "http://localhost:3000"><button>返回首页</button></a>
       </div>
     )
   }

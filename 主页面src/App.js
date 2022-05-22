@@ -8,6 +8,8 @@ import Flash from './homepage/Flash'
 import Detail from './homepage/details/Detail'
 
 import React, { Component } from 'react'
+import Login from './login/Login';
+import SignUp from './login/SignUp';
 
 export default class App extends Component {
   render() {
@@ -15,6 +17,8 @@ export default class App extends Component {
       <div>
         <BrowserRouter>
         <Routes>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/register' element={<SignUp/>}/>
           <Route path='/flash' element={<Flash />} />
           <Route path='/entertainment' element={<Entertainment />} />
           <Route path='/technology' element={<Technology />} />

@@ -44,12 +44,12 @@ export default class Postcomment extends Component {
   render() {
     return (
       <div>
-        
-          <textarea type='text' className='comment'
-            onChange={this.AddCommentContent}
-            value={this.state.CommentContent}>
-          </textarea>
-        
+
+        <textarea type='text' className='comment'
+          onChange={this.AddCommentContent}
+          value={this.state.CommentContent}>
+        </textarea>
+
         <button value='Submit' onClick={this.SendContent}>评论</button>
       </div>
     )

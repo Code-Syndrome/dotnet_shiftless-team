@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
+import style from './Commentlist.modules.css'
 
 export default class Commentlist extends Component {
-constructor(props){
-  super(props);
-  this.state={
-    id:''
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: ''
+    }
   }
-}
 
   render() {
     return (
-      <div>
+      <div style={style.Commentlist} className='comment'>
         <ul >
           {
             this.props.data.map((comment) => (
