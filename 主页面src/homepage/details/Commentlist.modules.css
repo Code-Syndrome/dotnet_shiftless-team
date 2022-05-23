@@ -1,0 +1,12 @@
+.comment ul{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.comment li{
+    display: block;
+    color: rgb(9, 9, 9);
+    padding: 6px 6px;
+    text-decoration: none;
+}
