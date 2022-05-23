@@ -3,22 +3,27 @@ div.home {
   height: 100%;
   width: 100%;
 }
-
-.Nav li {
-  float: left;
+li a{
   display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
+li a:hover {
+  background-color: #111;
+}
+.Nav li {
+  float: left;
+}
 
 .Nav ul {
   list-style-type: none;
+ 
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: rgb(252, 89, 8);
+  background-color: #333;
 }
 
 li.login {
@@ -33,6 +38,7 @@ fieldset.Head {
   position: static;
   width: '1500px';
   height: '1000px';
+  
 }
 
 .Head h3 {
@@ -44,16 +50,19 @@ fieldset.Head {
 .Head input {
   position: absolute;
   margin-top: -12px;
-  right: 650px;
+  right: 519px;
   width: 200px;
   height: 12px;
 }
 
 .Head button {
   position: absolute;
-  margin-top: -12px;
-  right: 650px;
-  width: 50px;
+  text-align: center;
+  margin-top: -10px;
+  border-radius: 12px;
+  transition-duration: 0.4s;
+  right: 450px;
+  width: 65px;
   height: 20px;
 }
 
@@ -66,10 +75,3 @@ fieldset.ListPage {
   width: 100%;
 }
 
-/* div.Other {
-  position: absolute;
-  top: 110px;
-  right: 0;
-  width: 500px;
-  height: 120px;
-} */

@@ -1,6 +1,6 @@
 .news li {
     display: block;
-    color: white;
+    color: rgb(14, 81, 226);
     padding: 14px 16px;
     text-decoration: none;
 }
@@ -9,5 +9,5 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(155, 230, 225);
+    background-color: rgb(17, 227, 199);
 }

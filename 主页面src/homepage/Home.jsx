@@ -24,7 +24,7 @@ export default class Home extends Component {
       }
     });
     sessionStorage.getItem("nowval", JSON.stringify(willval));
-    window.location.href = ""
+    window.location.href="http://localhost:3000";
   }
 
   render() {
@@ -35,8 +35,8 @@ export default class Home extends Component {
 
         <fieldset style={style.Home} className='Head'>
           <h3>讯飞头条</h3>
-          <input type='text'style={style.Home} className='SearchText'></input>
-          <button className='SearchButton' style={style.Home} onClick={this.SearchNews} >搜索</button>
+          <input type='text'style={style.Home} className='SearchText' ref={this.SearchTextInput}></input>
+          <button className='SearchButton' style={style.Home} onClick={this.SearchNews} >search</button>
         </fieldset>
 
         <fieldset style={style.Home} className='ListPage'>
@@ -72,12 +72,6 @@ export default class Home extends Component {
           </div>
         </fieldset>
 
-       {/*  <div style={style.Home} className='Other'>
-          <fieldset style={{ height: '500px' }}>
-            
-          </fieldset>
-        </div>
- */}
       </div>
 
     )

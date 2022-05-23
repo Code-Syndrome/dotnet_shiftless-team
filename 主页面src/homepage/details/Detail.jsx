@@ -1,9 +1,9 @@
-import { Link, useParams } from 'react-router-dom'
-import news from './newsContent'
+import { Link } from 'react-router-dom'
 import Commentlist from './Commentlist';
 import Postcomment from './Postcomment';
 import style from './Detail.modules.css'
 import comments from './comments';
+import img from "./tupian.png";
 
 
 import React, { Component } from 'react'
@@ -53,6 +53,7 @@ export default class Detail extends Component {
         </fieldset>
         <fieldset style={style.Detail} className='detail'>
           <Newsid/>
+          <img src={img} alt="hotnews"/>
         </fieldset>
         <fieldset style={style.Detail} className='post'>
           <div>
@@ -66,7 +67,7 @@ export default class Detail extends Component {
           </div>
         </fieldset>
         <a href="http://localhost:3000"><button>返回首页</button></a>
-        
+       
       </div>
     )
   }

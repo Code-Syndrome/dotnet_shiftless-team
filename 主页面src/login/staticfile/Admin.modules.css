@@ -1,0 +1,32 @@
+button {
+  border-radius: 23px;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 15px 5%;
+  margin: 2%;
+  color: #fff;
+  transition: all 0.2s linear;
+  display: inline-block;
+  font-weight: 500;
+  color: white;
+  background-color: #4b68de;
+  border-color: #4b68de;
+  width: 20%;
+  margin-left: 3%;
+}
+
+button:hover {
+  color: black;
+}
+.img {
+  width: 700px;
+  height: 70vh;
+  margin: 0 auto;
+}
+.buttondiv {
+  height: 200px;
+}
