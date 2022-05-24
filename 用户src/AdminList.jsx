@@ -5,7 +5,6 @@ export default class AdminList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nowshow: this.props.data,
       selectUser: {
         username: "",
         password: "",
@@ -20,52 +19,49 @@ export default class AdminList extends Component {
       },
       Newss: [],
     };
-    this.AddUserNameText = React.createRef();
-    this.AddUserPassWordText = React.createRef();
-    this.AddUserPermissionText = React.createRef();
-    this.DeleteUserByUserName = React.createRef();
-    this.UpdateUserName = React.createRef();
-    this.UpdateUserPassWord = React.createRef();
-    this.UpdateUserPermission = React.createRef();
-    this.GetUserByUserName = React.createRef();
 
-    this.AddNewsIdText = React.createRef();
-    this.AddNewsTitleText = React.createRef();
-    this.AddNewsContentText = React.createRef();
-    this.DeleteNewsById = React.createRef();
-    this.UpdateNewsId = React.createRef();
-    this.UpdateNewsTitle = React.createRef();
-    this.UpdateNewsContent = React.createRef();
-    this.GetNewsById = React.createRef();
+    this.UserRef = React.createRef();
+    this.UserNameText = React.createRef();
+    this.UserPassWordText = React.createRef();
+
+    this.NewsRef = React.createRef();
+
+    this.NewsIdText = React.createRef();
+    this.NewsTitleText = React.createRef();
+    this.NewsContentText = React.createRef();
   }
 
   AddUser = () => {
     const UserData = {
-      username: this.AddUserNameText.current.value,
-      password: this.AddUserPassWordText.current.value,
-      permission: this.AddUserPermissionText.current.value,
+      username: this.UserNameText.current.value,
+      password: this.UserPassWordText.current.value,
+      permission: 1,
     };
-    fetch(`http://localhost:5000/UserData`, {
+
+    var userJson = JSON.stringify(UserData);
+    console.log(userJson);
+    fetch(`http://localhost:5000/AddUser`, {
       method: "POST",
-      body: JSON.stringify(UserData),
+      body: userJson,
       headers: {
         "Content-Type": "application/json",
       },
     })
       .then((res) => res.json())
       .then((data) => {
-        alert("填加了" + data + "条用户数据");
+        if (data === 0) {
+          alert("该用户已存在");
+        } else {
+          alert("增加了" + data + "条用户数据");
+        }
       })
       .catch((e) => console.log("错误：", e));
   };
 
   DeleteUser = () => {
-    const DeleteUserName = this.DeleteUserByUserName.current.value;
-    fetch(`http://localhost:5000/UserData/${DeleteUserName}`, {
+    const DeleteUserName = this.UserNameText.current.value;
+    fetch(`http://localhost:5000/DeleteUserByUsername/${DeleteUserName}`, {
       method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -76,11 +72,14 @@ export default class AdminList extends Component {
 
   UpdateUser_ = () => {
     const UserData = {
-      username: this.UpdateUserUserName.current.value,
-      password: this.UpdateUserPassWord.current.value,
-      permission: this.UpdateUserPermission.current.value,
+      Username: this.UserNameText.current.value,
+      Target: {
+        username: this.UserNameText.current.value,
+        password: this.UserPassWordText.current.value,
+        permission: 1,
+      },
     };
-    fetch(`http://localhost:5000/UserData`, {
+    fetch(`http://localhost:5000/UpdataUser`, {
       method: "PUT",
       body: JSON.stringify(UserData),
       headers: {
@@ -96,7 +95,7 @@ export default class AdminList extends Component {
 
   GetUserByUserName_ = () => {
     fetch(
-      `http://localhost:5000/UserData/${this.GetUserByUserName.current.value}`,
+      `http://localhost:5000/GetUserByUsername/${this.UserNameText.current.value}`,
       {
         method: "GET",
       }
@@ -115,11 +114,11 @@ export default class AdminList extends Component {
   };
 
   GetUser_ = () => {
-    fetch(`http://localhost:5000/UserData}`, { method: "GET" })
+    fetch(`http://localhost:5000/GetUser}`, { method: "GET" })
       .then((res) => res.json())
       .then((data) => {
         this.setState({
-          Users: data,
+          Users: data.splic(0, 3),
         });
       })
       .catch((e) => console.log("错误：", e));
@@ -127,11 +126,11 @@ export default class AdminList extends Component {
 
   AddNews = () => {
     const NewsData = {
-      NewsId: this.AddNewsIdText.current.value,
-      NewsTitle: this.AddNewsTitleText.current.value,
-      NewsContent: this.AddNewsTitleText.current.value,
+      NewsId: Number(this.NewsIdText.current.value),
+      NewsTitle: this.NewsTitleText.current.value,
+      NewsContent: this.NewsTitleText.current.value,
     };
-    fetch(`http://localhost:5000/NewsData`, {
+    fetch(`http://localhost:5000/AddNews`, {
       method: "POST",
       body: JSON.stringify(NewsData),
       headers: {
@@ -146,12 +145,9 @@ export default class AdminList extends Component {
   };
 
   DeleteNews_ = () => {
-    const DeleteNewsId = this.DeleteNewsById.current.value;
-    fetch(`http://localhost:5000/NewsData/${DeleteNewsId}`, {
+    const DeleteNewsId = this.NewsIdText.current.value;
+    fetch(`http://localhost:5000/DeleteNews/${Number(DeleteNewsId)}`, {
       method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -162,11 +158,14 @@ export default class AdminList extends Component {
 
   UpdateNews_ = () => {
     const NewsData = {
-      NewsId: this.UpdateNewsId.current.value,
-      NewsTitle: this.UpdateNewsTitle.current.value,
-      NewsContent: this.UpdateNewsContent.current.value,
+      Target: {
+        NewsId: Number(this.NewsIdText.current.value),
+        NewsTitle: this.NewsTitleText.current.value,
+        NewsContent: this.NewsContentText.current.value,
+      },
+      NewsId: this.NewsIdText.current.value,
     };
-    fetch(`http://localhost:5000/NewsData`, {
+    fetch(`http://localhost:5000/UpdataNews`, {
       method: "PUT",
       body: JSON.stringify(NewsData),
       headers: {
@@ -181,16 +180,22 @@ export default class AdminList extends Component {
   };
 
   GetNewsById_ = () => {
-    fetch(`http://localhost:5000/NewsData/${this.GetNewsById.current.value}`, {
-      method: "GET",
-    })
+    fetch(
+      `http://localhost:5000/GetNewsById/${Number(
+        this.NewsIdText.current.value
+      )}`,
+      {
+        method: "GET",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         this.setState({
           selectNews: {
-            NewsId: data.NewsId,
-            NewsTitle: data.NewsTitle.trim(),
-            NewsContent: data.NewsContent.trim(),
+            NewsId: data.newsId,
+            NewsTitle: data.newsTitle,
+            NewsContent: data.newsContent,
           },
         });
       })
@@ -198,230 +203,146 @@ export default class AdminList extends Component {
   };
 
   GetNews_ = () => {
-    fetch(`http://localhost:5000/NewsData}`, { method: "GET" })
+    fetch(`http://localhost:5000/GetNews}`, { method: "GET" })
       .then((res) => res.json())
       .then((data) => {
         this.setState({
-          Newss: data,
+          Newss: data.splic(0, 3),
         });
       })
       .catch((e) => console.log("错误：", e));
   };
 
-  ShowList = () => {
-    if (this.state.nowshow === "AddUser") {
-      <ul>
-        <label>AddUserName</label>
-        <li>
-          <input type="text" ref={this.AddUserNameText} />
-        </li>
-        <label>AddUserPassWord</label>
-        <li>
-          <input type="text" ref={this.AddUserPassWordText} />
-        </li>
-        <label>AddUserPermission</label>
-        <li>
-          <input type="text" ref={this.AddUserPermissionText} />
-        </li>
-        <li>
-          <input type="button" value="AddUser" onClick={() => this.AddUser} />
-        </li>
-      </ul>;
-    } else if (this.state.nowshow === "DeleteUserByUserName") {
-      <ul>
-        <label>DeleteUserByUserName</label>
-        <li>
-          <input type="text" ref={this.DeleteUserByUserName} />
-        </li>
-        <li>
-          <input
-            type="button"
-            value="DeleteUser"
-            onClick={() => this.DeleteUser}
-          />
-        </li>
-      </ul>;
-    } else if (this.state.nowshow === "UpdateUser") {
-      <ul>
-        <label>UpdateUserName</label>
-        <li>
-          <input type="text" ref={this.UpdateUserName} />
-        </li>
-        <label>UpdateUserPassWord</label>
-        <li>
-          <input type="text" ref={this.UpdateUserPassWord} />
-        </li>
-        <label>UpdatePermission</label>
-        <li>
-          <input type="text" ref={this.UpdateUserPermission} />
-        </li>
-        <li>
-          <input
-            type="button"
-            value="UpdateUser"
-            onClick={() => this.UpdateUser_}
-          />
-        </li>
-      </ul>;
-    } else if (this.state.nowshow === "GetUserByUserName") {
-      <ul>
-        <label>GetUserByUserName</label>
-        <li>
-          <input type="text" ref={this.GetUserByUserName} />
-        </li>
-        <li>
-          <input
-            type="button"
-            value="根据用户名获取"
-            onClick={() => this.GetUserByUserName_}
-          />
-        </li>
-        <label>UseName</label>
-        <li>{this.state.selectUser.username}</li>
-        <label>PassWord</label>
-        <li>{this.state.selectUser.password}</li>
-        <li>{() => this.AdminOrUser}</li>
-      </ul>;
-    } else if (this.state.nowshow === "GetUser") {
-      <ul>
-        <li>
-          <input
-            type="button"
-            value="获取全部用户"
-            onClick={() => this.GetUser_}
-          />
-        </li>
-        {this.state.Users.map((user) => {
-          <li>
-            <label>UserName:</label>
-            {user.username}
-            <br />
-            <label>PassWord:</label>
-            {user.password}
-            <br />
-            {() => {
-              if (user.permission === 1) {
-                <li>普通用户</li>;
-              } else {
-                <li>管理员</li>;
-              }
-            }}
-          </li>;
-        })}
-      </ul>;
-    } else if (this.state.nowshow === "AddNews") {
-      <ul>
-        <label>AddNewsId</label>
-        <li>
-          <input type="text" ref={this.AddNewsIdText} />
-        </li>
-        <label>AddNewsTitle</label>
-        <li>
-          <input type="text" ref={this.AddNewsTitleText} />
-        </li>
-        <label>AddNewsContent</label>
-        <li>
-          <input type="text" ref={this.AddNewsContentText} />
-        </li>
-        <li>
-          <input type="button" value="AddNews" onClick={() => this.AddNews} />
-        </li>
-      </ul>;
-    } else if (this.state.nowshow === "DeleteNewsById") {
-      <ul>
-        <label>DeleteNewsById</label>
-        <li>
-          <input type="text" ref={this.DeleteNewsById} />
-        </li>
-        <li>
-          <input
-            type="button"
-            value="删除该新闻"
-            onClick={() => this.DeleteNews_}
-          />
-        </li>
-      </ul>;
-    } else if (this.state.nowshow === "UpdateNews") {
-      <ul>
-        <label>UpdateNewsId</label>
-        <li>
-          <input type="text" ref={this.UpdateNewsId} />
-        </li>
-        <label>UpdateNewsTitle</label>
-        <li>
-          <input type="text" ref={this.UpdateNewsTitle} />
-        </li>
-        <label>UpdateNewsContent</label>
-        <li>
-          <input type="text" ref={this.UpdateNewsContent} />
-        </li>
-        <li>
-          <input
-            type="button"
-            value="UpdateNews"
-            onClick={() => this.UpdateNews_}
-          />
-        </li>
-      </ul>;
-    } else if (this.state.nowshow === "GetNewsById") {
-      <ul>
-        <label>SelectNewsById</label>
-        <li>
-          <input type="text" ref={this.GetNewsById} />
-        </li>
-        <li>
-          <input
-            type="button"
-            value="根据新闻id获取"
-            onClick={() => this.GetNewsById_}
-          />
-        </li>
-        <label>NewsId:</label>
-        <li>{this.state.selectNews.NewsId}</li>
-        <label>NewsTitle:</label>
-        <li>{this.state.selectUser.NewsTitle}</li>
-        <label>NewsContent:</label>
-        <li>{this.state.selectUser.NewsContent}</li>
-      </ul>;
-    } else if (this.state.nowshow === "GetAllNews") {
-      <ul>
-        <li>
-          <input
-            type="button"
-            value="获取全部新闻"
-            onClick={() => this.GetNews_}
-          />
-        </li>
-        {this.state.Newss.map((news) => {
-          <li>
-            <label>NewsId:</label>
-            {news.NewsId}
-            <br />
-            <label>NewsTitle:</label>
-            {news.NewsTitle}
-            <br />
-            <label>NewsContent:</label>
-            {news.NewsContent}
-          </li>;
-        })}
-      </ul>;
+  WhichButton = () => {
+    if (this.props.data === "AddUser") {
+      this.AddUser();
+    } else if (this.props.data === "DeleteUser") {
+      this.DeleteUser();
+    } else if (this.props.data === "UpdateUser") {
+      this.UpdateUser_();
+    } else if (this.props.data === "GetUserByUserName") {
+      this.GetUserByUserName_();
+    } else if (this.props.data === "GetUser") {
+      this.GetUser_();
+    } else if (this.props.data === "AddNews") {
+      this.AddNews();
+    } else if (this.props.data === "DeleteNews") {
+      this.DeleteNews_();
+    } else if (this.props.data === "UpdateNews") {
+      this.UpdateNews_();
+    } else if (this.props.data === "GetNewsById") {
+      this.GetNewsById_();
+    } else if (this.props.data === "GetNews") {
+      this.GetNews_();
     }
   };
 
-  AdminOrUser = () => {
-    if (this.state.selectUser.permission === 1) {
-      <li>普通用户</li>;
+  componentDidUpdate() {
+    if (this.props.change === "UserV") {
+      this.UserRef.current.style.visibility = "visible";
+      this.NewsRef.current.style.visibility = "hidden";
+    } else if (this.props.change === "NewsV") {
+      this.UserRef.current.style.visibility = "hidden";
+      this.NewsRef.current.style.visibility = "visible";
     } else {
-      <li>管理员</li>;
+      this.UserRef.current.style.visibility = "hidden";
+      this.NewsRef.current.style.visibility = "hidden";
     }
-  };
+  }
+  componentDidMount() {
+    this.UserRef.current.style.visibility = "hidden";
+    this.NewsRef.current.style.visibility = "hidden";
+  }
 
   render() {
+    console.log(this.state.selectNews);
+    let Onelist;
+    if (this.props.data === "GetUserByUserName") {
+      Onelist = (
+        <ul>
+          <li>查询到的用户名：{this.state.selectUser.username}</li>
+          <li>查询到的用户密码：{this.state.selectUser.password}</li>
+          <li>查询到的用户权限：{this.state.selectUser.permission}</li>
+        </ul>
+      );
+    } else if (this.props.data === "GetNewsById") {
+      Onelist = (
+        <ul>
+          <li>查询到的新闻Id：{this.state.selectNews.NewsId}</li>
+          <li>查询到的新闻标题：{this.state.selectNews.NewsTitle}</li>
+          <li>查询到的新闻内容：{this.state.selectNews.NewsContent}</li>
+        </ul>
+      );
+    }
+    let UserAllList;
+    if (this.props.data === "GetUser") {
+      UserAllList = (
+        <ul>
+          {this.state.Users.map((user) => {
+            <div>
+              <li>查询到的用户名：{user.username}</li>
+              <li>查询到的用户密码：{user.password}</li>
+              <li>查询到的用户权限：{user.permission}</li>
+            </div>;
+          })}
+        </ul>
+      );
+    } else if (this.props.data === "GetNews") {
+      UserAllList = (
+        <ul>
+          {this.state.Newss.map((news) => {
+            <div>
+              <li>查询到的新闻Id：{news.NewsId}</li>
+              <li>查询到的新闻标题：{news.NewsTitle}</li>
+              <li>查询到的新闻内容：{news.NewsContent}</li>
+            </div>;
+          })}
+        </ul>
+      );
+    }
+
+    let list;
+    if (
+      this.props.data === "GetUserByUserName" ||
+      this.props.data === "GetNewsById"
+    ) {
+      list = Onelist;
+    } else if (this.props.data === "GetUser" || this.props.data === "GetNews") {
+      list = UserAllList;
+    }
+    console.log("子组件的props" + this.props.data);
     return (
       <div style={style.AdminList} className="AdminListMainDiv">
         <fieldset className="showList">
-          <h1>Welcome Back Admin!</h1>
-          <textarea>{() => this.ShowList}</textarea>
+          <h1>{this.props.data}</h1>
+          <ul ref={this.UserRef}>
+            <label>UserName</label>
+            <li>
+              <input type="text" ref={this.UserNameText} />
+            </li>
+            <label>UserPassWord</label>
+            <li>
+              <input type="text" ref={this.UserPassWordText} />
+            </li>
+          </ul>
+          <ul ref={this.NewsRef}>
+            <label>NewsId</label>
+            <li>
+              <input type="text" ref={this.NewsIdText} />
+            </li>
+            <label>NewsTitle</label>
+            <li>
+              <input type="text" ref={this.NewsTitleText} />
+            </li>
+            <label>NewsContent</label>
+            <li>
+              <input type="text" ref={this.NewsContentText} />
+            </li>
+          </ul>
+          <button onClick={this.WhichButton}>GOGO</button>
+          <fieldset className="ShowlistFieldset" ref={this.showlist}>
+            {list}
+          </fieldset>
         </fieldset>
       </div>
     );

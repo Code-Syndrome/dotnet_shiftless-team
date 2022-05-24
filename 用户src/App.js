@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router";
 import Admin from "./Admin";
 import Login from "./Login";
 import SignUp from "./SignUp";
-import UserIndex from "./UserIndex";
 
 export class App extends React.Component {
   render() {
@@ -11,11 +10,10 @@ export class App extends React.Component {
       <div className="App">
         <div>
           <Routes>
-            <Route path="/UserIndex" element={<UserIndex />} />
             <Route path="/SignUp" element={<SignUp />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/Admin" element={<Admin />} />
-            <Route index element={<UserIndex />} />
+            <Route index element={<Admin />} />
           </Routes>
         </div>
       </div>

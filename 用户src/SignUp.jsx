@@ -20,7 +20,7 @@ export default class SignUp extends Component {
       password: this.signPassword.current.value,
       permission: "1",
     };
-    fetch(`http://localhost:5000/UserData`, {
+    fetch(`http://localhost:5000/AddUser`, {
       method: "POST",
       body: JSON.stringify(UserData),
       headers: {

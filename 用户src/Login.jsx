@@ -16,8 +16,10 @@ export default class Login extends Component {
 
   FormTextGet() {
     fetch(
-      `http://localhost:5000/UserData/${this.LoginUsername.current.value}`,
-      { method: "GET" }
+      `http://localhost:5000/GetUserByUsername/${this.LoginUsername.current.value}`,
+      {
+        method: "GET",
+      }
     )
       .then((res) => res.json())
       .then((data) => {
@@ -112,13 +114,10 @@ export default class Login extends Component {
           <p className="signup">
             Don't have an account yet ?<Link to="/signup"> Sign Up</Link>
           </p>
-
-          <Link to="/Admin">
-            <button onClick={this.FormTextGet} type="submit" className="login">
-              {" "}
-              Login
-            </button>
-          </Link>
+          <button onClick={this.FormTextGet} type="submit" className="login">
+            {" "}
+            Login
+          </button>
           <Link to="/">
             <button className="back">Back</button>
           </Link>
