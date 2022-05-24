@@ -20,54 +20,135 @@ namespace ASP.NET_Web_Api.Data
         {
             using var connection = new SqlConnection(connectionString_);
             connection.Open();
-            string commandText = $"DELETE FROM [News] WHERE [NewsId]='{Newsid}';";
+            string commandText = $"Select NewsId from [News]" +
+             $"where NewsId=@NewsId";
+
             using SqlCommand command = new SqlCommand(commandText, connection);
-            return command.ExecuteNonQuery();
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@NewsId",Newsid)
+            };
+            command.Parameters.AddRange(parameters);
+
+            using SqlDataReader dr = command.ExecuteReader();
+            if (!dr.Read())
+            {
+                return 0;
+            }
+            else
+            {
+                dr.Close();
+                string commandtext = $"DELETE FROM [News] WHERE [NewsId]=@NewsId;";
+                command.CommandText = commandtext;
+                return command.ExecuteNonQuery();
+            }
+
         }
         public int AddNews(News news)
         {
-            // News news = (News)JsonConvert.DeserializeObject(newsNow);
             using var connection = new SqlConnection(connectionString_);
             connection.Open();
-            string commandText = $"insert  into [News] (NewsId,NewsTitle,NewsContent)" +
-                $"values('{news.NewsId}','{news.NewsTitle}','{news.NewsContent}')";
-            using SqlCommand command = new SqlCommand(commandText, connection);
-            return command.ExecuteNonQuery();
-        }
+            string commandText = $"Select NewsId from [News]" +
+              $"where NewsId=@NewsId";
 
+            using SqlCommand command = new SqlCommand(commandText, connection);
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@NewsId",news.NewsId),
+                new SqlParameter("@NewsTitle",news.NewsTitle),
+                new SqlParameter("@NewsContent",news.NewsContent),
+            };
+            command.Parameters.AddRange(parameters);
+
+            using SqlDataReader dr = command.ExecuteReader();
+            if (dr.Read())
+            {
+                return 0;
+            }
+            else
+            {
+                dr.Close();
+                string commandtext = $"insert  into [News] (NewsId,NewsTitle,NewsContent)" +
+                                $"values(@NewsId,@NewsTitle,@NewsContent)";
+                command.CommandText = commandtext;
+                return command.ExecuteNonQuery();
+            }
+
+        }
         public int UpdataNews(News news, string newsId)
         {
             using var connection = new SqlConnection(connectionString_);
             connection.Open();
-            string commandText = $"Update [News] SET NewsTitle='{news.NewsTitle}',NewsContent='{news.NewsContent}' " +
-               $"where NewsId='{newsId}' ";
-            using SqlCommand command = new SqlCommand(commandText, connection);
-            return command.ExecuteNonQuery();
-        }
+            string commandText = $"Select NewsId from [News]" +
+             $"where NewsId=@NewsId";
 
-
-        public News GetNewsById(int id)
-        {
-            News news = null;
-            using var connection = new SqlConnection(connectionString_);
-            connection.Open();
-            string commandText = $"Select NewsId,NewsTitle,NewsContent from [News]" +
-               $"where NewsId='{id}'";
             using SqlCommand command = new SqlCommand(commandText, connection);
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            SqlParameter[] parameters = new SqlParameter[]
             {
-                news = new()
-                {
-                    NewsId = reader.GetString(0),
-                    NewsTitle = reader.GetString(1),
-                    NewsContent = reader.GetString(2)
-                };
+                new SqlParameter("@NewsId",newsId)
+            };
+            command.Parameters.AddRange(parameters);
+
+            using SqlDataReader dr = command.ExecuteReader();
+            if (!dr.Read())
+            {
+                return 0;
+            }
+            else
+            {
+                dr.Close();
+                string commandtext = $"Update News SET NewsTitle=@NewsTitle,NewsContent=@NewsContent " +
+                              $"where NewsId=@NewsId ";
+                SqlParameter[] parametersInsert = new SqlParameter[]
+                   {
+                      new SqlParameter("@NewsTitle",news.NewsTitle),
+                      new SqlParameter("@NewsContent",news.NewsContent),
+                   };
+                command.Parameters.AddRange(parametersInsert);
+                command.CommandText = commandtext;
+                return command.ExecuteNonQuery();
             }
 
-            return news;
         }
+        public News GetNewsById(int id)
+        {
+            News news;
+            using var connection = new SqlConnection(connectionString_);
+            connection.Open();
+            string commandText = $"Select NewsId from [News]" +
+             $"where NewsId=@Id";
 
+            using SqlCommand command = new SqlCommand(commandText, connection);
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@Id",id)
+            };
+            command.Parameters.AddRange(parameters);
+
+            using SqlDataReader dr = command.ExecuteReader();
+            if (!dr.Read())
+            {
+                return null;
+            }
+            else
+            {
+                dr.Close();
+                string commandtext = $"Select NewsId,NewsTitle,NewsContent from [News]" +
+                               $"where NewsId=@Id";
+                command.CommandText = commandtext;
+                using SqlDataReader sqldr = command.ExecuteReader();
+                sqldr.Read();
+                news = new()
+                {
+                    NewsId =sqldr.GetInt32(0),
+                    NewsTitle = sqldr.GetString(1),
+                    NewsContent = sqldr.GetString(2)
+                };
+                sqldr.Close();
+                return news;
+            }
+
+        }
         public List<News> GetNews()
         {
             List<News> newsList = new();
@@ -76,12 +157,12 @@ namespace ASP.NET_Web_Api.Data
             connection.Open();
             string commandText = $"Select NewsId,NewsTitle,NewsContent from [News]";
             using SqlCommand command = new SqlCommand(commandText, connection);
-            SqlDataReader reader = command.ExecuteReader();
+            using SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 News news = new()
                 {
-                    NewsId = reader.GetString(0),
+                    NewsId = int.Parse(reader.GetString(0)),
                     NewsTitle = reader.GetString(1),
                     NewsContent = reader.GetString(2)
                 };

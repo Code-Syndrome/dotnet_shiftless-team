@@ -4,6 +4,7 @@ using ASP.NET_Web_Api.Data;
 using ASP.NET_Web_Api.Data.Models;
 using System.Collections.Generic;
 using ASP.NET_Web_Api.Controllers.Models;
+using Newtonsoft.Json;
 
 namespace ASP.NET_Web_Api.Controllers
 {
@@ -21,51 +22,40 @@ namespace ASP.NET_Web_Api.Controllers
         }
 
 
-        [HttpPost]
-        public int AddUser([FromBody] User User)
+        [HttpPost("/AddUser")]
+        public int AddUser([FromBody]User user)
         {
-            return UserDatasql.AddUser(User);
+            return UserDatasql.AddUser(user);
         }
 
 
-        [HttpDelete("{username}")]
-        public ActionResult<int> DeleteUserByUsername(string username)
+        [HttpDelete("/DeleteUserByUsername/{username}")]
+        public int DeleteUserByUsername(string username)
         {
             return UserDatasql.DeleteUserByUsername(username);
         }
 
-        [HttpPut]
-        public ActionResult<UpdateResultUserViewModel>
-            UpdataUser([FromBody] UpdateUserViewModel updateViewModel)
+        [HttpPut("/UpdataUser")]
+        public int UpdataUser([FromBody]UpdateUserViewModel updateViewModel)
         {
             if (!ModelState.IsValid)
             {
-                return new UpdateResultUserViewModel()
-                {
-                    user = null,
-                    StatusCode = 2,
-                    Message = "model is invalid !"
-                };
+                return 0;
             }
             else
             {
                 int update = UserDatasql.UpdataUser(updateViewModel.Target, updateViewModel.Username);
-                return new UpdateResultUserViewModel()
-                {
-                    user = updateViewModel.Target,
-                    StatusCode = 0,
-                    Message = "User update success !"
-                };
+                return update;
             }
         }
 
-        [HttpGet("{username}")]
+        [HttpGet("/GetUserByUsername/{username}")]
         public User GetUserByUsername(string username)
         {
             return UserDatasql.GetUserByUsername(username);
         }
 
-        [HttpGet]
+        [HttpGet("/GetUser")]
         public List<User> GetUser()
         {
             return UserDatasql.GetUser();

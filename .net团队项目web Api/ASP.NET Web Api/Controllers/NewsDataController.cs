@@ -4,6 +4,7 @@ using ASP.NET_Web_Api.Controllers.Models;
 using ASP.NET_Web_Api.Data;
 using ASP.NET_Web_Api.Data.Models;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace ASP.NET_Web_Api.Controllers
 {
@@ -20,48 +21,41 @@ namespace ASP.NET_Web_Api.Controllers
             newsdatasql = DataRepository;
         }
 
-        
-        [HttpPost]
+
+        [HttpPost("/AddNews")]
         public int AddNews([FromBody]News news)
         {
             return newsdatasql.AddNews(news);
         }
 
-        
-        [HttpDelete("{Newsid}")]
-        public ActionResult<int> DeleteNews(int Newsid)
+
+        [HttpDelete("/DeleteNews/{Newsid}")]
+        public int DeleteNews(int Newsid)
         {
             return newsdatasql.DeleteNews(Newsid);
         }
 
-        [HttpPut]
-        public ActionResult<UpdateResultViewModel> 
-            UpdataNews([FromBody]UpdateNewsViewModel updateViewModel)
+        [HttpPut("/UpdataNews")]
+        public int UpdataNews([FromBody]UpdateNewsViewModel updateViewModel)
         {
-            if(!ModelState.IsValid) {
-                return new UpdateResultViewModel() {
-                    News = null,
-                    StatusCode = 2,
-                    Message = "model is invalid !"
-                };
+            if (!ModelState.IsValid)
+            {
+                return 0;
             }
-            else {
+            else
+            {
                 int update = newsdatasql.UpdataNews(updateViewModel.Target, updateViewModel.NewsId);
-                return new UpdateResultViewModel() {
-                    News = updateViewModel.Target,
-                    StatusCode = 0,
-                    Message = "news update success !"
-                };
-            }            
+                return update;
+            }
         }
 
-        [HttpGet("{Newsid}")]
+        [HttpGet("/GetNewsById/{Newsid}")]
         public News GetNewsById(int Newsid)
         {
             return newsdatasql.GetNewsById(Newsid);
         }
 
-        [HttpGet]
+        [HttpGet("/GetNews")]
         public List<News> GetNews()
         {
             return newsdatasql.GetNews();
