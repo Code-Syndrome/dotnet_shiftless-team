@@ -1,7 +1,7 @@
 
 const comments = [
-{   id:11,
-    body:'寄',
+{   
+    body:'',
 },
 ]
 export default comments;

@@ -93,9 +93,11 @@ export default class SignUp extends Component {
               Already A Registered ? Click Here To
               <Link to="/login"> Login</Link>{" "}
             </p>
-            <button className="but1" type="submit">
+           
+            <button className="but1" type="submit" >
               Register
             </button>
+            
             <Link to="/">
               <button className="but">Back</button>
             </Link>

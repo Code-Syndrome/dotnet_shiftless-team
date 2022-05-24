@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
+import style from './Home.modules.css'
 
 export default class ShowSearch extends Component {
     constructor() {
@@ -10,6 +12,39 @@ export default class ShowSearch extends Component {
     render() {
         return (
             <div>
+                <fieldset style={style.Home} className='ListPage'>
+                    <div style={style.Home} className='Nav'>
+                        <ul>
+                            <li>
+                                <Link to='/flash'>热点</Link>
+                            </li>
+
+                            <li>
+                                <Link to='/entertainment'>娱乐</Link>
+                            </li>
+
+                            <li>
+                                <Link to='/technology'>科技</Link>
+                            </li>
+
+                            <li>
+                                <Link to='/game'>游戏</Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style={style.Home} className='showsearch'>
+                        <ul>
+                            {
+                                this.nowvalarr.map((val) => (
+                                    <li>
+                                        <Link to={`/detail/${val}`}>{val.title}</Link>
+                                        <hr />
+                                    </li>))
+                            }
+                        </ul>
+                    </div>
+                </fieldset>
+                <a href="http://localhost:3000"><button>返回首页</button></a>
             </div>
         )
     }

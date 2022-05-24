@@ -5,7 +5,6 @@ import news from './details/newsContent';
 import style from './Home.modules.css'
 import NewsList from './NewsList'
 
-
 export default class Home extends Component {
   constructor() {
     super();
@@ -18,24 +17,22 @@ export default class Home extends Component {
     let willval = [];
     news.map((val) => {
       console.log(val);
-      if (val.title.indexOf(tosearch) !== -1 ||
-        val.content.indexOf(tosearch) !== -1) {
+      if (val.title.indexOf(tosearch) !== -1) {
         willval.push(val);
       }
     });
-    sessionStorage.getItem("nowval", JSON.stringify(willval));
-    window.location.href="http://localhost:3000";
+    sessionStorage.setItem("nowval", JSON.stringify(willval));
+    window.location.href = "http://localhost:3000/showsearch";
   }
 
   render() {
-    console.log(news);
     return (
 
       <div style={style.Home} className='home'>
 
-        <fieldset style={style.Home} className='Head'>
-          <h3>讯飞头条</h3>
-          <input type='text'style={style.Home} className='SearchText' ref={this.SearchTextInput}></input>
+        <fieldset style={style.Home} className='background' >
+          <h2 style={style.Home} className='Head'>讯飞头条</h2>
+          <input type='text' style={style.Home} className='SearchText' ref={this.SearchTextInput}></input>
           <button className='SearchButton' style={style.Home} onClick={this.SearchNews} >search</button>
         </fieldset>
 
@@ -58,17 +55,14 @@ export default class Home extends Component {
                 <Link to='/game'>游戏</Link>
               </li>
 
-              <li style={style.Home} className='login'>
-                <Link to='/login'>登录</Link>
+              <li>
+                <Link to='/login' style={style.Home} className='tologin'>登录</Link>
               </li>
 
-              <li style={style.Home} className='register'>
-                <Link to='/register'>注册</Link>
-              </li>
             </ul>
           </div>
           <div>
-            <NewsList data={news}/>
+            <NewsList data={news} />
           </div>
         </fieldset>
 

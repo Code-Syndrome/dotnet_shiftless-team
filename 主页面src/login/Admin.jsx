@@ -68,6 +68,11 @@ export default class Admin extends Component {
             onClick={() => this.setState({ NowClick: "GetAllNews" })}>
             GetAllNews
           </button>
+          <div className="buttondiv">
+          <a href = "http://localhost:3000">
+            <button>返回首页</button>
+            </a>
+          </div>
         </div>
         <AdminList data={this.state.NowClick} />
       </div>

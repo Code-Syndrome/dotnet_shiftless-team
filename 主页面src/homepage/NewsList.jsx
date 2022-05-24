@@ -8,7 +8,7 @@ export default class NewsList extends Component {
         super(props);
        
         this.nowvalarr = JSON.parse(sessionStorage.getItem("nowval"));
-         console.log(this.nowvalarr);
+        //  console.log(this.nowvalarr);
     }
 
     testlist = () => {
