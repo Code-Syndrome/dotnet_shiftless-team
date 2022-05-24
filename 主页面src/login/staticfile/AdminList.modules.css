@@ -5,16 +5,16 @@
   top: -900px;
   right: 100px;
   float: right;
-  background: linear-gradient(
-    to bottom right,
-    rgb(62, 192, 242),
-    rgb(75, 104, 222)
-  );
+  background: linear-gradient(to bottom right,
+      rgb(62, 192, 242),
+      rgb(75, 104, 222));
   border: none;
 }
+
 h1 {
   color: aliceblue;
 }
+
 ul {
   list-style: none;
 }

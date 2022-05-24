@@ -5,11 +5,11 @@ export default class Technology extends Component {
   render() {
     return (
       <div>
-        <fieldset><h2 style={{textAlign:"center"}}>科技</h2></fieldset>
+        <fieldset><h2 style={{ textAlign: "center" }}>科技</h2></fieldset>
         <fieldset>
-          <NewsList data={3}/>
+          <NewsList data={3} />
         </fieldset>
-        <a href = "http://localhost:3000"><button>返回首页</button></a>
+        <a href="http://localhost:3000"><button>返回首页</button></a>
       </div>
     )
   }

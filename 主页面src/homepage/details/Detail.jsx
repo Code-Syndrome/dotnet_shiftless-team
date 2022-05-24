@@ -14,21 +14,19 @@ export default class Detail extends Component {
     this.state = {
       changestate: 1,
     };
-    this.ThisDetail();
+    this.UpDate=this.UpDate.bind(this);
   }
-
-  ThisDetail = () => {
-    console.log("Into ThisDetail");
-
-    console.log(JSON.parse(sessionStorage.getItem("detailid")));
-  }
-
-  UpDate() {
+  UpDate(){
+    console.log("Update");
     this.setState({ changestate: 1 });
   }
 
 
   render() {
+    let commentlist;
+    if(sessionStorage.getItem("username")!==null){
+      commentlist=<Commentlist/>
+    }
     return (
       <div style={style.Detail} className='details'>
 
@@ -57,13 +55,13 @@ export default class Detail extends Component {
         </fieldset>
         <fieldset style={style.Detail} className='post'>
           <div>
-            <Postcomment data={comments} Home="1"
-              onChangeState={() => this.UpDate()} />
+            <Postcomment  Home="1"
+              onChangeState={this.UpDate} />
           </div>
         </fieldset>
         <fieldset style={style.Detail} className='list'>
           <div>
-            <Commentlist data={comments} />
+            {commentlist}
           </div>
         </fieldset>
 
