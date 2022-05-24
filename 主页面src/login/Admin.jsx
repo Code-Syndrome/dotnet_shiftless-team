@@ -69,8 +69,8 @@ export default class Admin extends Component {
             GetAllNews
           </button>
           <div className="buttondiv">
-          <a href = "http://localhost:3000">
-            <button>返回首页</button>
+            <a href="http://localhost:3000">
+              <button>返回首页</button>
             </a>
           </div>
         </div>

@@ -1,12 +1,12 @@
 import news from './details/newsContent'
-import { Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import style from './NewsList.modules.css'
 import React, { Component } from 'react'
 
 export default class NewsList extends Component {
     constructor(props) {
         super(props);
-       
+
         this.nowvalarr = JSON.parse(sessionStorage.getItem("nowval"));
         //  console.log(this.nowvalarr);
     }
@@ -19,7 +19,7 @@ export default class NewsList extends Component {
                     newlist.push(list);
                 }
             })
-            sessionStorage.setItem("testnews",JSON.stringify(newlist));
+            sessionStorage.setItem("testnews", JSON.stringify(newlist));
             console.log(newlist);
         }
         else if (this.props.data === 2) {
@@ -29,7 +29,7 @@ export default class NewsList extends Component {
                     newlist.push(list);
                 }
             })
-            sessionStorage.setItem("testnews",JSON.stringify(newlist));
+            sessionStorage.setItem("testnews", JSON.stringify(newlist));
         }
         else if (this.props.data === 3) {
             let newlist = [];
@@ -38,7 +38,7 @@ export default class NewsList extends Component {
                     newlist.push(list);
                 }
             })
-            sessionStorage.setItem("testnews",JSON.stringify(newlist));
+            sessionStorage.setItem("testnews", JSON.stringify(newlist));
         }
         else if (this.props.data === 4) {
             let newlist = [];
@@ -47,17 +47,17 @@ export default class NewsList extends Component {
                     newlist.push(list);
                 }
             })
-            sessionStorage.setItem("testnews",JSON.stringify(newlist));
+            sessionStorage.setItem("testnews", JSON.stringify(newlist));
         }
         else {
-            sessionStorage.setItem("testnews",JSON.stringify(news));       
+            sessionStorage.setItem("testnews", JSON.stringify(news));
         }
     }
 
     render() {
         this.testlist();
-        let newss=JSON.parse(sessionStorage.getItem("testnews"));
-           
+        let newss = JSON.parse(sessionStorage.getItem("testnews"));
+
         return (
             <div style={style.NewsList} className="news">
                 <ul>

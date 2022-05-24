@@ -91,15 +91,19 @@ img {
   .main-container {
     flex-direction: column;
   }
+
   .img-container {
     width: 100%;
   }
+
   .form {
     width: 100%;
   }
+
   .login {
     width: 30%;
   }
+
   .back {
     width: 30%;
   }

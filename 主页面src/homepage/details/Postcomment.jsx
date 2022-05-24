@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import comments from './comments';
 
 export default class Postcomment extends Component {
   constructor(props) {
@@ -10,6 +9,7 @@ export default class Postcomment extends Component {
 
     this.AddCommentContent = this.AddCommentContent.bind(this);
     this.SendContent = this.SendContent.bind(this);
+    this.onChangeStateSend=this.onChangeStateSend.bind(this);
   }
 
   AddCommentContent(e) {
@@ -18,27 +18,40 @@ export default class Postcomment extends Component {
   }
 
   AddComment = (comment) => {
-    if (this.props.data.length <= 100) {
-      this.props.data.push(comment);
-      for (let i = 0; i < this.props.data.length; i++) {
-        this.props.data[i].id = i;
+    let testarray = [];
+    if (sessionStorage.getItem("CommentsItem") !== null) {
+      testarray = JSON.parse(sessionStorage.getItem("CommentsItem"));
+      if ((JSON.parse(sessionStorage.getItem("CommentsItem"))).length <= 100) {
+        testarray.push(comment);
+        for (let i = 0; i < testarray.length; i++) {
+          testarray[i].id = i;
+        }
+        sessionStorage.setItem("CommentsItem", JSON.stringify(testarray));
       }
-      sessionStorage.setItem("CommentsItem", comments);
+    } else {
+      testarray.push(comment);
+      for (let i = 0; i < testarray.length; i++) {
+        testarray[i].id = i;
+      }
+      sessionStorage.setItem("CommentsItem", JSON.stringify(testarray));
     }
-    this.onChangeStateSend = this.props.onChangeState;
-    this.onChangeStateSend();
+
+
+    
   };
 
-  onChangeStateSend() { };
+  onChangeStateSend(){ 
+    this.props.onChangeState();
+  };
+
 
   SendContent() {
     let CommentNew = {
       id: 0,
       body: this.state.CommentContent,
-
     };
-    this.setState({ CommentContent: "" });
     this.AddComment(CommentNew);
+    this.onChangeStateSend();
   }
 
   render() {
