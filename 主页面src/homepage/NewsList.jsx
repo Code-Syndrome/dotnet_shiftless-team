@@ -6,7 +6,9 @@ import React, { Component } from 'react'
 export default class NewsList extends Component {
     constructor(props) {
         super(props);
-        console.log(props);
+       
+        this.nowvalarr = JSON.parse(sessionStorage.getItem("nowval"));
+        //  console.log(this.nowvalarr);
     }
 
     testlist = () => {

@@ -1,5 +1,4 @@
-import { Link, useParams } from 'react-router-dom'
-import news from './newsContent'
+import { Link } from 'react-router-dom'
 import Commentlist from './Commentlist';
 import Postcomment from './Postcomment';
 import style from './Detail.modules.css'
@@ -18,11 +17,11 @@ export default class Detail extends Component {
     this.ThisDetail();
   }
 
-  ThisDetail=()=> {
+  ThisDetail = () => {
     console.log("Into ThisDetail");
- 
+
     console.log(JSON.parse(sessionStorage.getItem("detailid")));
-}
+  }
 
   UpDate() {
     this.setState({ changestate: 1 });
@@ -32,6 +31,7 @@ export default class Detail extends Component {
   render() {
     return (
       <div style={style.Detail} className='details'>
+
         <fieldset style={style.Detail} className='nav'>
           <ul>
             <li>
@@ -51,8 +51,9 @@ export default class Detail extends Component {
             </li>
           </ul>
         </fieldset>
+
         <fieldset style={style.Detail} className='detail'>
-          <Newsid/>
+          <Newsid />
         </fieldset>
         <fieldset style={style.Detail} className='post'>
           <div>
@@ -65,8 +66,9 @@ export default class Detail extends Component {
             <Commentlist data={comments} />
           </div>
         </fieldset>
+
         <a href="http://localhost:3000"><button>返回首页</button></a>
-        
+
       </div>
     )
   }

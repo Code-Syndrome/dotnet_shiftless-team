@@ -7,12 +7,13 @@ div.details {
 .nav ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 1px;
     overflow: hidden;
-    background-color: rgb(248, 89, 9);
+    background-color: rgb(13, 113, 244);
 }
 
 .nav li {
+    padding: 0%;
     float: left;
     display: block;
     color: white;
@@ -21,10 +22,34 @@ div.details {
     text-decoration: none;
 }
 
+fieldset.nav {
+    padding: 0%;
+}
+
 fieldset.detail {
     position: relative;
     margin: 3px;
     height: 100%;
     width: 100%;
     padding: 5px;
+
+}
+
+fieldset.detail {
+    background-image: url(tupian.png);
+    background-repeat: no-repeat;;
+    background-size: 100%;
+}
+
+.detail h2 {
+    text-align: center;
+}
+
+.detail p {
+    padding: 10px;
+    font-size: 20px;
+    text-indent: 50px;
+    text-align: justify;
+    letter-spacing: 3px;
+    font-family: Arial, Helvetica, sans-serif;
 }
