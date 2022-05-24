@@ -60,7 +60,7 @@ export default class NewsList extends Component {
 
         return (
             <div style={style.NewsList} className="news">
-                <ul>
+                <div className='listul'>
                     {
                         newss.map((val) => (
                             <li key={val.id} >
@@ -68,7 +68,7 @@ export default class NewsList extends Component {
                             </li>
                         ))
                     }
-                </ul>
+                </div>
             </div>
         )
     }
