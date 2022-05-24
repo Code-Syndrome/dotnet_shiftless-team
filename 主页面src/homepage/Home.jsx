@@ -12,6 +12,16 @@ export default class Home extends Component {
     this.SearchTextInput = React.createRef();
   }
 
+  handleScrollTop=()=>{
+    window.scrollTo({
+      left:0,
+      top:0,
+      behavior:'smooth'
+
+
+    })
+  }
+
   SearchNews() {
     let tosearch = String(this.SearchTextInput.current.value);
     let willval = [];
@@ -65,7 +75,7 @@ export default class Home extends Component {
             <NewsList data={news} />
           </div>
         </fieldset>
-
+        <button onClick={this.handleScrollTop}>返回顶部</button>
       </div>
 
     )
