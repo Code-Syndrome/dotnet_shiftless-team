@@ -1,0 +1,121 @@
+div.home {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+li a {
+  display: block;
+  color: rgb(1, 17, 18);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: rgb(195, 243, 245);
+}
+
+.Nav li {
+  float: left;
+}
+
+.Nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: block;
+  background-color: rgb(185, 188, 192);
+}
+
+.tologin {
+  float: right;
+}
+
+fieldset.background {
+  position: relative;
+  width: '1500px';
+  height: '150px';
+  background-image: url(bg.png);
+  background-size: auto;
+}
+
+.ListPage {
+  border: 0;
+}
+
+h2.Head {
+  margin-top: 0;
+  text-align: center;
+  position: relative;
+}
+
+input.SearchText {
+  position: absolute;
+  border-radius: 9px;
+  margin-top: 20px;
+  right: 35%;
+  width: 700px;
+  height: 50px;
+  font-size: 30px;
+}
+
+.SearchButton {
+  position: relative;
+  right: -925px;
+  border-radius: 9px;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 2px solid transparent;
+  padding: 15px;
+  margin: 22px;
+  color: #fff;
+  transition: all 0.2s linear;
+  display: inline-block;
+  font-weight: 500;
+  color: rgb(248, 249, 252);
+  background-repeat: 0;
+  background-color: #03ccf9;
+  width: 100px;
+  height: 50px;
+  margin-left: 3%;
+}
+
+.head button {
+  position: absolute;
+  text-align: center;
+  margin-top: -10px;
+  border-radius: 12px;
+  transition-duration: 0.4s;
+  padding: 5px;
+  right: 200px;
+  width: 40px;
+  height: 20px;
+}
+
+
+.totop {
+  position: relative;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 4px;
+  background-color: #1088e9;
+  color: #fff;
+  text-align: center;
+  font-size: 14;
+  left: 1400px;
+}
+
+fieldset.ListPage {
+  position: relative;
+  padding: 2px;
+  margin: 1px;
+  height: 1000px;
+  width: 60%;
+  margin-left: 20%;
+}

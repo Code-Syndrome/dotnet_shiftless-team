@@ -1,0 +1,12 @@
+.news li {
+  display: block;
+  color: rgb(14, 81, 226);
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.listul {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}

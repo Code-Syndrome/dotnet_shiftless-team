@@ -1,0 +1,76 @@
+div.details {
+  position: relative;
+  height: 1000px;
+  width: 100%;
+}
+
+.nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: block;
+  background-color: rgb(185, 188, 192);
+}
+
+.nav li {
+  padding: 0%;
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+fieldset.nav {
+  padding: 0%;
+}
+
+fieldset.detail {
+  position: relative;
+  margin: 3px;
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+}
+
+fieldset.detail {
+  background-image: url(tupian.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.detail h2 {
+  text-align: center;
+}
+
+.detail p {
+  padding: 10px;
+  font-size: 20px;
+  text-indent: 50px;
+  text-align: justify;
+  letter-spacing: 3px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.gohome {
+  border-radius: 23px;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 15px 5%;
+  margin: 2%;
+  color: #fff;
+  transition: all 0.2s linear;
+  display: inline-block;
+  font-weight: 500;
+  color: white;
+  background-color: #4b68de;
+  border-color: #4b68de;
+  width: 20%;
+  margin-left: 3%;
+}

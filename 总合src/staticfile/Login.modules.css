@@ -1,0 +1,120 @@
+.main-container {
+  display: flex;
+  margin: 5% auto;
+  height: 100vh;
+  width: 90%;
+  justify-content: space-around;
+}
+
+.img-container {
+  width: 50%;
+}
+
+img {
+  width: 100%;
+  height: 95%;
+}
+.input-Username {
+  padding: 100px 0;
+}
+
+.form {
+  background-color: #24d42d3a;
+  height: 80vh;
+  width: 40%;
+  text-align: center;
+}
+
+.login {
+  border-radius: 23px;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 15px 5%;
+  margin: 2%;
+  color: #fff;
+  transition: all 0.2s linear;
+  display: inline-block;
+  font-weight: 500;
+  color: white;
+  background-color: #4b68de;
+  border-color: #4b68de;
+  width: 20%;
+  margin-left: 3%;
+}
+
+.login:hover {
+  color: black;
+}
+
+.back {
+  border-radius: 23px;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 15px 5%;
+  margin: 2%;
+  color: #fff;
+  transition: all 0.2s linear;
+  display: inline-block;
+  font-weight: 500;
+  color: white;
+  background-color: #4b68de;
+  border-color: #4b68de;
+  width: 20%;
+  margin-left: 3%;
+}
+
+.back:hover {
+  color: black;
+}
+
+.Log-Username {
+  width: 30%;
+  height: 4vh;
+  border: 2px solid;
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
+  border-radius: 25px;
+}
+
+.Log-pass {
+  width: 30%;
+  height: 4vh;
+  border: 2px solid;
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
+  border-radius: 25px;
+}
+
+@media (max-width: 767.98px) {
+  .main-container {
+    flex-direction: column;
+  }
+  .img-container {
+    width: 100%;
+  }
+  .form {
+    width: 100%;
+  }
+  .login {
+    width: 30%;
+  }
+  .back {
+    width: 30%;
+  }
+}

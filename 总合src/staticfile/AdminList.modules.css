@@ -1,0 +1,65 @@
+.showList {
+  width: 400px;
+  height: 470px;
+  position: relative;
+  top: -500px;
+  float: right;
+  background: linear-gradient(
+    to bottom right,
+    rgb(62, 192, 242),
+    rgb(75, 104, 222)
+  );
+  border: none;
+}
+h1 {
+  color: aliceblue;
+}
+
+.ShowlistFieldset {
+  position: relative;
+  top: 200px;
+  right: 100px;
+  border: none;
+}
+
+.UserAllListGetNews li {
+  width: 500px;
+  position: relative;
+  display: block;
+  padding: 0.4em 0.4em 0.4em 2em;
+  *padding: 0.4em; /*for ie6/7*/
+  margin: 0.5em 0;
+  background: #ddd;
+  color: #444;
+  text-decoration: none; /*CSS3属性*/
+  border-radius: 0.3em; /*制作圆角*/ /* transition动画效果*/
+  -moz-transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.UserAllListGetNews {
+  counter-reset: li;
+  list-style: none;
+  *list-style: decimal;
+  font: 15px "trebuchet MS", "lucida sans";
+  padding: 0;
+  margin-bottom: 4em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.GOGO {
+  position: relative;
+  left: 100px;
+  background-color: #4caf50; /* Green */
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
