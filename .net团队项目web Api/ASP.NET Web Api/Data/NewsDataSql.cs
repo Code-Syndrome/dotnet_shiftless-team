@@ -149,7 +149,7 @@ namespace ASP.NET_Web_Api.Data
             }
 
         }
-        public List<News> GetNews()
+        public string GetNews()
         {
             List<News> newsList = new();
 
@@ -162,14 +162,14 @@ namespace ASP.NET_Web_Api.Data
             {
                 News news = new()
                 {
-                    NewsId = int.Parse(reader.GetString(0)),
+                    NewsId = reader.GetInt32(0),
                     NewsTitle = reader.GetString(1),
                     NewsContent = reader.GetString(2)
                 };
                 newsList.Add(news);
             }
+            return JsonConvert.SerializeObject(newsList);
 
-            return newsList;
         }
     }
 }

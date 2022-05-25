@@ -56,7 +56,7 @@ namespace ASP.NET_Web_Api.Controllers
         }
 
         [HttpGet("/GetNews")]
-        public List<News> GetNews()
+        public string GetNews()
         {
             return newsdatasql.GetNews();
         }

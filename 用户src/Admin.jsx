@@ -51,15 +51,13 @@ export default class Admin extends Component {
             GetUserByUserName
           </button>
           <button
-            className="GetAllUser"
+            className="GetUser"
             onClick={() => {
               this.setState({ NowClick: "GetUser" });
               sessionStorage.setItem("ChangeCompent", "UserV");
             }}>
-            GetAllUser
-          </button>
-        </div>
-        <div className="buttondiv">
+            GetUser
+          </button>                                                                       
           <button
             className="AddNews"
             onClick={() => {
@@ -98,7 +96,7 @@ export default class Admin extends Component {
               this.setState({ NowClick: "GetNews" });
               sessionStorage.setItem("ChangeCompent", "NewsV");
             }}>
-            GetAllNews
+            GetNews
           </button>
         </div>
         <AdminList

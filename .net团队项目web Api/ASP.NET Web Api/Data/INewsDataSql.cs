@@ -9,6 +9,6 @@ namespace ASP.NET_Web_Api.Data
         public int AddNews(News news);
         public int UpdataNews(News news,string newsId);
         public News GetNewsById(int Newsid);
-        public List<News> GetNews();
+        public string GetNews();
     }
 }

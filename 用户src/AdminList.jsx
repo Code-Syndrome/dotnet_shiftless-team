@@ -5,19 +5,19 @@ export default class AdminList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      Users: [],
+      Newss: [],
       selectUser: {
         username: "",
         password: "",
         permission: "",
       },
-      Users: [],
 
       selectNews: {
         NewsId: "",
         NewsTitle: "",
         NewsContent: "",
       },
-      Newss: [],
     };
 
     this.UserRef = React.createRef();
@@ -114,11 +114,11 @@ export default class AdminList extends Component {
   };
 
   GetUser_ = () => {
-    fetch(`http://localhost:5000/GetUser}`, { method: "GET" })
+    fetch(`http://localhost:5000/GetUser`, { method: "GET" })
       .then((res) => res.json())
       .then((data) => {
         this.setState({
-          Users: data.splic(0, 3),
+          Users: data,
         });
       })
       .catch((e) => console.log("错误：", e));
@@ -203,12 +203,10 @@ export default class AdminList extends Component {
   };
 
   GetNews_ = () => {
-    fetch(`http://localhost:5000/GetNews}`, { method: "GET" })
+    fetch(`http://localhost:5000/GetNews`, { method: "GET" })
       .then((res) => res.json())
       .then((data) => {
-        this.setState({
-          Newss: data.splic(0, 3),
-        });
+        this.setState({ Newss: data });
       })
       .catch((e) => console.log("错误：", e));
   };
@@ -238,6 +236,7 @@ export default class AdminList extends Component {
   };
 
   componentDidUpdate() {
+    console.log(this.props.change);
     if (this.props.change === "UserV") {
       this.UserRef.current.style.visibility = "visible";
       this.NewsRef.current.style.visibility = "hidden";
@@ -255,11 +254,11 @@ export default class AdminList extends Component {
   }
 
   render() {
-    console.log(this.state.selectNews);
+    console.log(this.props.data);
     let Onelist;
     if (this.props.data === "GetUserByUserName") {
       Onelist = (
-        <ul>
+        <ul className="UserAllListGetNews">
           <li>查询到的用户名：{this.state.selectUser.username}</li>
           <li>查询到的用户密码：{this.state.selectUser.password}</li>
           <li>查询到的用户权限：{this.state.selectUser.permission}</li>
@@ -267,7 +266,7 @@ export default class AdminList extends Component {
       );
     } else if (this.props.data === "GetNewsById") {
       Onelist = (
-        <ul>
+        <ul className="UserAllListGetNews">
           <li>查询到的新闻Id：{this.state.selectNews.NewsId}</li>
           <li>查询到的新闻标题：{this.state.selectNews.NewsTitle}</li>
           <li>查询到的新闻内容：{this.state.selectNews.NewsContent}</li>
@@ -277,27 +276,27 @@ export default class AdminList extends Component {
     let UserAllList;
     if (this.props.data === "GetUser") {
       UserAllList = (
-        <ul>
-          {this.state.Users.map((user) => {
-            <div>
+        <div>
+          {this.state.Users.map((user) => (
+            <ul className="UserAllListGetNews">
               <li>查询到的用户名：{user.username}</li>
               <li>查询到的用户密码：{user.password}</li>
               <li>查询到的用户权限：{user.permission}</li>
-            </div>;
-          })}
-        </ul>
+            </ul>
+          ))}
+        </div>
       );
     } else if (this.props.data === "GetNews") {
       UserAllList = (
-        <ul>
-          {this.state.Newss.map((news) => {
-            <div>
+        <div>
+          {this.state.Newss.map((news) => (
+            <ul className="UserAllListGetNews">
               <li>查询到的新闻Id：{news.NewsId}</li>
               <li>查询到的新闻标题：{news.NewsTitle}</li>
               <li>查询到的新闻内容：{news.NewsContent}</li>
-            </div>;
-          })}
-        </ul>
+            </ul>
+          ))}
+        </div>
       );
     }
 
@@ -310,7 +309,6 @@ export default class AdminList extends Component {
     } else if (this.props.data === "GetUser" || this.props.data === "GetNews") {
       list = UserAllList;
     }
-    console.log("子组件的props" + this.props.data);
     return (
       <div style={style.AdminList} className="AdminListMainDiv">
         <fieldset className="showList">
@@ -339,7 +337,9 @@ export default class AdminList extends Component {
               <input type="text" ref={this.NewsContentText} />
             </li>
           </ul>
-          <button onClick={this.WhichButton}>GOGO</button>
+          <button className="GOGO" onClick={this.WhichButton}>
+            GOGO
+          </button>
           <fieldset className="ShowlistFieldset" ref={this.showlist}>
             {list}
           </fieldset>

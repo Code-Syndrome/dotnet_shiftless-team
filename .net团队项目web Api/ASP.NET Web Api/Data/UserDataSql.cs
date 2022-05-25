@@ -106,7 +106,6 @@ namespace ASP.NET_Web_Api.Data
                                $"where username=@Username ";
                 SqlParameter[] parametersInsert = new SqlParameter[]
                     {
-                    new SqlParameter("@Username",username),
                     new SqlParameter("@Password",user.password),
                     new SqlParameter("@Permission",user.permission),
                     };
