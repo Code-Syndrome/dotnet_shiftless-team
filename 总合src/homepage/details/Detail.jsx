@@ -23,7 +23,22 @@ export default class Detail extends Component {
   render() {
     let commentlist;
     if (sessionStorage.getItem("username") !== null) {
-      commentlist = <Commentlist />;
+      commentlist = (
+        <div>
+          <fieldset style={style.Detail} className="post">
+            <div>
+              <Postcomment Home="1" onChangeState={this.UpDate} />
+            </div>
+          </fieldset>
+          <fieldset style={style.Detail} className="list">
+            <div>
+              评论列表
+              <hr />
+              <Commentlist />
+            </div>
+          </fieldset>
+        </div>
+      );
     } else {
       commentlist = <div></div>;
     }
@@ -53,19 +68,7 @@ export default class Detail extends Component {
         <fieldset style={style.Detail} className="detail">
           <Newsid />
         </fieldset>
-        <fieldset style={style.Detail} className="post">
-          <div>
-            <Postcomment Home="1" onChangeState={this.UpDate} />
-          </div>
-        </fieldset>
-        <fieldset style={style.Detail} className="list">
-          <div>
-            评论列表
-            <hr />
-            {commentlist}
-          </div>
-        </fieldset>
-
+        {commentlist}
         <a href="http://localhost:3000">
           <button style={style.Detail} className="gohome">
             返回首页
